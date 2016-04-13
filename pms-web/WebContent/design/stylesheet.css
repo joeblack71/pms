@@ -1,0 +1,185 @@
+
+/*
+ * Colors custom used to
+ *  #90d0ff | rgb(223,239,255) 'turquise'
+ *  #4467a2 | rgb(68,103,162)  'nice blue'
+ *  #F5F5F5 | rgb(245,245,245) 'whitesmoke'
+ */
+
+body {}
+body.Menu { background: #F0FAFF; /* aliceblue */}
+
+a:link,
+a:visited { color: #00F; } /* blue */
+a:active  { color: #F0F; } /* fuchsia */
+
+a.Menu:link,
+a.Menu:visited { color: #FFF; } /* white */
+a.Menu:active  { color: #CCC; } /* silver */
+
+a.Menu { text-decoration: none; } /* underline */
+
+a.Tool { width: 38px; height: 24px; }
+
+ul.Menu {
+    font-size:   12;
+    font-weight: bold;
+}
+
+em { font-weight: bold; }
+
+table {
+    border-collapse: collapse;
+    font-size:       10pt;
+    font-family:     Serif, Arial, Verdana;
+}
+table.Login {
+    border-style: none;
+    width:        280px;
+    background:   #87CEFA; /* lightskyblue*/
+}
+table.Menu {
+    width:      180px;
+    background: #E6E6FA; /* lavander */
+    color:      inherit;
+    font-size:  9pt;
+}
+table.Form {
+    /* border-width border-color borde-style */
+    width:      680px;
+    /*border: thick #FFDAB9 solid; /* peachpuff*/
+    /*border-top:    2px solid #FFF; /* white */
+    border-bottom: 3px solid #888; /* gray */
+    border-right:  3px solid #888; /* gray */
+    background: #FFEFD5; /* PapayaWhip */
+    font-size:    8pt;
+}
+
+table.Report {
+    border-collapse: none;
+    font-size:    10pt;
+}
+
+caption {
+    padding-left: 4px;
+    background: #D3D3D3; /* lightgray*/
+    text-align: left;
+}
+caption.Login {
+    height:      30px;
+    background:  #008; /* navy */
+    color:       #FFF; /* white */
+    font-weight: bold;
+    font-size:   12pt;
+    font-family: Verdana, Serif;
+}
+caption.Menu {
+    background: #4682B4; /* steelblue */
+    color:       #FFF; /* white */
+    font-size:   9pt;
+}
+caption.Form {
+    border-top:   2px solid #FFF; /* gray */
+    border-right: 3px solid #888; /* gray */
+    /*background: #87CEFA;*/ /* lightskyblue */ /* #90d0ff lghter than lightskyblue*/
+    background: #FFDAB9; /* PeachPuff */
+    color:      #FA8072; /* salmon */
+    font-family: Verdana;
+    font-size:   14pt;
+}
+
+col.Number { text-align: right }
+col.Center { text-align: center }
+
+thead {
+    background: #D3D3D3; /* lightgrey */
+    color:      #000; /* black */
+}
+
+tbody {}
+tbody.Report { padding: 0px }
+
+tfoot {
+    /*background: #90d0ff; /* turquise */
+    color:      inherit;
+}
+tfoot.Form {
+    /*background: #90d0ff;*/ /* turquise */
+    background: #FFDAB9; /* PeachPuff */
+    color:      #FFF; /* white */
+    font:       bold 12pt verdana, serif;
+}
+
+tr.Total {
+    background: #4682B4; /* steelblue */
+    color:      #FFF; /* white */
+    font:  bold 11pt inherit;
+}
+tr.Distinct { background: #F5F5F5; /* whitesmoke */}
+
+label {
+    margin-left: 80px;
+    width:       120px;
+    height:      12px;
+    color:       #888; /* gray */
+    font-size:   8pt;
+    font-family: Verdana;
+}
+
+/* NOTA: Al modificar el valor de 'padding' considerar la
+         modificacion de 'height' y viceversa; puesto que,
+         la variacion de cualquiera de ellos afecta la visualizacion
+         del contenido de la caja. En este caso 'input'.
+*/
+input {
+    /*margin-left: 2px;*/
+    margin-right: 2px;
+    padding: 2px 4px;
+    color:       #888; /* gray */
+    font-family: Verdana, Serif, Arial;
+}
+
+input.Box {
+    height: 22px;
+    border: solid 1px;
+    border-color: #D3D3D3; /* lightgrey */
+    background:    #FFF; /* whitesmoke */
+}
+
+input.Tool, button.Tool {
+    width:  38px;
+    height: 24px;
+    background:    #F5F5F5; /* whitesmoke */ /* #039 +/- blue */
+    /*border-top:    2px solid #FFF; /* white */
+    border-bottom: 1px solid #888; /* gray */
+    border-right:  1px solid #888; /* gray */
+}
+
+input.Number { text-align: right }
+input.Remark { color: #000 /* black */ }
+input.NoBorder { border: none }
+
+select {
+    margin-top:  1px;
+    margin-right: 2px;
+    font-size:   10pt;
+    font-family: Verdana, Arial, Serif;
+    color:       #888; /* gray */
+}
+
+TEXTAREA {
+    border:      solid 1px silver;
+    background:  #FCFCFC; /* lighter than whitesmoke */
+    color:       #CCC; /* silver */
+    font-size:   10pt;
+    font-family: Arial;
+}
+
+col.Tiny,   label.Tiny,   input.Tiny    select.Tiny   { width: 20px; }
+col.Small,  label.Small,  input.Small,  select.Small  { width: 40px; }
+col.Medium, label.Medium, input.Medium, select.Medium { width: 80px; }
+col.Large,  label.Large,  input.Large,  select.Large  { width: 160px; }
+col.XLarge, label.XLarge, input.XLarge, select.XLarge { width: 323px; }
+
+button.Tool { background: oldlace; color: gray; } /*#E6E6FA /* lavender */
+

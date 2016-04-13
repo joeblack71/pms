@@ -1,0 +1,150 @@
+<HTML>
+
+<HEAD>
+    <META http-equiv="Expires=-1" content="text/html; charset=iso-8859-1">
+    <META http-equiv="Content-Style-Type" content="text/css">
+    <LINK rel='stylesheet' type='text/css' href="css/stylesheet.css">
+    <TITLE>Reserva</TITLE>
+    <SCRIPT language='JavaScript' src="js/validateForm.js"></SCRIPT>
+    <SCRIPT type='text/javascript' language='JavaScript'>
+    <!--
+    function loadDocument(){
+        document.frmres.reservation.select();
+    }
+
+    //-->
+    </SCRIPT>
+</HEAD>
+
+<BODY onLoad='loadDocument()'>
+<FORM name='frmres' action="ServReservation" method="post"
+      onSubmit='return validateSubmit()'>
+  <TABLE class='Form' border='0' align='CENTER'> <!--rules='groups' cellspacing=5-->
+  <CAPTION class='Form'><H4><%=resheader%><BR>&nbsp;
+  <COLGROUP>
+    <COL><COL>
+    
+    <TR><TD colspan='2'><INPUT type='hidden' name='hotel' value="1">&nbsp;
+
+    <TR><TH><LABEL for='reservation'># Reservation:</LABEL>
+        <TD><INPUT type='text' name='reservation' class='Medium'
+                   id='reservation' value=''
+                   maxlength='5' title="Codigo de Reserva (Autogenerado)">
+        <TD><INPUT type='button' name='search' class='Medium'
+                   id='search' value='Search'
+                   onClick="searchReservation()">
+    <TR><TD><LABEL for='reservation'>Reservation Status:</LABEL>
+        <TD colspan='2'>
+            <SELECT name='status' class='Large' id='status'>
+              <OPTION value='' selected> Reservation status
+            </SELECT>
+
+    <TR><TD><LABEL for='nights'>Nights:</LABEL>
+        <TD><INPUT type='text' name='nights' class='Medium' id='nights'
+                   value=''
+                   maxlength='3' onChange="showTotal(this.form)">
+        <TD><INPUT type='button' name='availability' class='Medium'
+                   id='availability' value='Availability'
+                   onClick="javascript:showAvailability()">
+
+    <TR><TD><LABEL for='arrival'>* Arrival:</LABEL>
+        <TD colspan='2'><INPUT type='text' name='arrival' class='Large' id='arrival'
+                   maxlength='10' value=''
+                   onChange='' onKeyUp='disableSaveButton(document.frmres)'>
+
+    <TR><TD><LABEL for='departure'>* Departure:</LABEL>
+        <TD colspan='2'><INPUT type='text' name='departure' class='Large' id='departure'
+                   maxlength='10' value=''
+                   onChange='' onKeyUp='disableSaveButton(document.frmres)'>
+
+    <TR><TD><LABEL for='adults'>Adults - Children:</LABEL>
+        <TD><INPUT type='text' name='adults' class='Medium' id='adults'
+                   value='' maxlength='2'>
+        <TD><INPUT type='text' name='children' class='Medium' id='children'
+                   value='' maxlength='2'>
+
+    <TR><TD><LABEL for='rommType'>Room Type:</LABEL>
+        <TD colspan='2'>
+            <SELECT name='roomType' class='Large' id='roomType'>
+              <OPTION value='' selected> Room type
+            </SELECT>
+
+    <TR><TD><LABEL for='roomRate'>Room - Room Rate:</LABEL>
+        <TD><INPUT type='text' name='roomNumber' class='Medium' id='roomNumber'
+                   value='' maxlength='4'>
+        <TD><INPUT type='text' name='roomRate' class='Medium' id='roomRate'
+                   value='' maxlength='7'
+                   onChange="showTotal(this.form)">
+
+    <TR><TD><LABEL for='roomRate'>Quantity - Total:</LABEL>
+        <TD><INPUT type='text' name='quantity' class='Medium' id='quantity'
+                   value='' maxlength='2'>
+            <!--<LABEL for='total' class='Medium'><B>T o t a l:</LABEL>-->
+        <TD><INPUT type='text' name='total' class='Medium' id='total'
+                    value='' ReadOnly>
+
+    <TR><TD><LABEL for='lastname'>* Lastname:</LABEL>
+        <TD colspan='2'><INPUT type='text' name='lastname' class='Large'
+                   id='lastname' maxlength='20' value=''>
+
+    <!--
+    <TR><TD><LABEL for='lastname'>* Middlename:</LABEL>
+        <TD colspan='2'><INPUT type='text' name='motherln' class='Large'
+                   id='motherln' maxlength='20' value=''>
+    -->
+
+    <TR><TD><LABEL for='firsname'>* Firstname(s):</LABEL>
+        <TD colspan='2'><INPUT type='text' name='firstname' class='Large'
+                   id='firsname' maxlength='15' value=''>
+    <!--
+    <TR><TD><LABEL for='document'># Document:</LABEL>
+        <TD colspan='2'><INPUT type='text' name='document' class='Large'
+                   id='document' maxlength='15' value=''>
+    -->
+    <TR><TD colspan='3'>&nbsp;
+
+<!-- Comment for testing
+    <TR><TH><LABEL for='address'>Direcci&oacute;n:</LABEL>
+        <TD colspan=2><INPUT type='text' id='address' class='XLarge' maxlength=50>
+
+    <TR><TH><LABEL for='country'>Pa&iacute;s/Ciudad:</LABEL>
+        <TD><SELECT id='country'>
+              <OPTION value=''> Paises
+            </SELECT>
+        <TD><INPUT type='text' id='city' class='Large' maxlength=15>
+
+    <TR><TH><LABEL for='phone1'>Tel&eacute;fonos:</LABEL>
+        <TD><INPUT type='text' id='phone1' class='Large' maxlength=15>
+        <TD><INPUT type='text' id='phone2' class='Large' maxlength=15>
+
+    <TR><TH><LABEL for='email'>E-mail:</LABEL>
+        <TD colspan=2><INPUT type='text' id=email class='XLarge' maxlength=50>
+
+    <TR><TH colspan=3>&nbsp;
+
+    <TR><TH><LABEL for='clientType'>Tipo Cliente:</LABEL>
+        <TD><SELECT id=clientType>
+              <OPTION value=N> Tipo Cliente
+            </SELECT>
+        <TD><BUTTON type=button id='custSearch' class='Large'>Busqueda
+    <TR><TH><LABEL for='clientName'>Raz&oacute;n social:</LABEL>
+        <TD colspan=2><INPUT type='text' id='clientName' class='XLarge' maxlength=50>
+
+    <TR><TH><LABEL for='contact'>Contacto:</LABEL>
+        <TD colspan=2><INPUT type='text' id='contact' class='XLarge' maxlength=50>
+
+    <TR><TD colspan=3>&nbsp;
+-->
+    <TR><TD colspan=3 align='center'>
+            <INPUT type='submit' name='show' value="Show" onClick=''>
+            <INPUT type='submit' name='save' value="Save" onClick=''>
+            <INPUT type='submit' name='delete' value="Delete" onClick=''>
+            <INPUT type='button' name='reset' value="New" onClick=''>
+            <!--<INPUT type='submit' name='exit' value="Exit"
+                   onClick='window.close()'>-->
+
+  </TABLE>
+</FORM>
+</BODY>
+
+</HTML>

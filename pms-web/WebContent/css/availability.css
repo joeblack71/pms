@@ -1,0 +1,63 @@
+
+@import searchform.css;
+
+a:link, a:visited {
+    background: inherit;
+    color:      #000;
+}
+
+table.Layout {
+    margin-bottom: 0px;
+    /*padding:       0px;*/
+    border:        none;
+    border-right:  solid 1px gray;
+    border-bottom: solid 1px gray;
+    border-top:    solid 1px white;
+    /*background:    steelblue;*/
+}
+
+tbody.Layout {
+    padding:       40px;
+    border:        none;
+    background:    silver;
+}
+
+table#matrix {
+    width:      800px;
+    height:     250px;
+    border-top: none;
+    background: #F5F5F5; /* whitesmoke */
+    color:      gray; /*steelblue;*/
+}
+
+table#availability {
+    width:      800px;
+    border-top: none;
+    border-right:  solid 1px gray;
+    border-bottom: solid 1px gray;
+    background: #F5F5F5; /* whitesmoke */
+}
+
+thead {
+    height:     60px;
+    background: #EAEAEA; /* silver */
+    color:      #000;
+    font:       0.9em verdana;
+    text-align: center;
+}
+
+tbody {
+    /*padding:    10px;*/
+    background: #EAEAEA; /* silver */
+    color:      #000;
+    font:       0.8em verdana;
+}
+
+tfoot { 
+    height:        40px;
+    padding-right: 10px;
+    background:    #EAEAEA; /* silver */
+    color:         #000;
+    font:          0.9em verdana;
+    text-align:    right;
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
+  <tlib-version>1.0</tlib-version>
+  <short-name>hello</short-name>
+  <uri>/WEB-INF/tlds/hello</uri>
+  <info>
+      Prepare reports from reservation table
+  </info>
+  
+  <tag>
+      <name>select</name>
+      <tagclass>tagslib.HTMLSelect</tagclass>
+      <bodycontent>empty</bodycontent>
+      <attribute>
+          <name>matter</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+          <name>selectedItem</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+  </tag>
+
+  <tag>
+      <name>reservation</name>
+      <tagclass>tagslib.ReservationList</tagclass>
+      <bodycontent>empty</bodycontent>
+      <attribute>
+          <name>field</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+      <attribute>
+          <name>pattern</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+  </tag>
+
+  <tag>
+      <name>availability</name>
+      <tagclass>tagslib.AvailabilityChart</tagclass>
+      <bodycontent>empty</bodycontent>
+      <attribute>
+          <name>matrix</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
+  </tag>
+
+</taglib>

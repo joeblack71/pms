@@ -1,0 +1,218 @@
+
+<%--<%@page errorPage="errorPage.jsp"%>--%>
+<%--<%@include file="valReservationForm.js"%>--%>
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="beans.*,libraries.*"%>
+
+<jsp:useBean id='res' class="beans.Reservation" scope='request'/>
+
+<%  // ls: room status, lr: room type, lp: package lodgement
+    ArrayList rslist=null, rtlist=null, lp=null;
+    if ( application.getAttribute("rslist") != null ) // reservation status
+        rslist = (ArrayList)application.getAttribute("rslist");
+    if ( application.getAttribute("rtlist") != null ) // room types
+        rtlist = (ArrayList)application.getAttribute("rtlist");
+
+    String strCaption=null, textArrival=null, textDeparture=null;
+    DateManager dm = new DateManager();
+    if ( session.getAttribute("res") != null ) {
+        res = (Reservation)session.getAttribute("res");
+        strCaption = "Res # " + res.getReservation() + " - " +
+                    res.getLastName() + ", " + res.getFirstNames();
+        textArrival   = dm.formatDate( res.getArrival() );
+        textDeparture = dm.formatDate( res.getDeparture() );
+    }
+    String selected = "";
+%>
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Expires=-1" content="text/html; charset=iso-8859-1">
+    <META http-equiv="Content-Style-Type" content="text/css">
+    <LINK rel='stylesheet' type='text/css' href="css/stylesheet.css">
+    <TITLE>Reserva</TITLE>
+<SCRIPT language='JavaScript' src="validateForm.js">
+</SCRIPT>
+
+<SCRIPT type='text/javascript' language='JavaScript'>
+<!--
+function loadDocument(){
+    document.frmres.reservation.select();
+}
+
+function searchReservation(){
+   URL = "reservsearch.jsp?selHotel=1";
+   appeareance = "width=500,height=350,left=50,top=100,scrollbars=yes";
+   // 'refsearch' nos permitira acceder a la ventana
+   refserach = window.open(URL,"search",appeareance);
+}
+
+function showAvailability(){
+   URL = "ServAvailability?selHotel="+frmres.hotel.value +
+         "&startDate=" + frmres.arrival.value +"&selPeriod=W&show=Mostrar";
+   appeareance = "width=700,height=350,left=50,top=100,scrollbars=yes";
+   window.open(URL,"availability",appeareance);
+}
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY onLoad='loadDocument()'>
+
+    <TABLE class='Form' align='center' border='0' cellspacing='6' cellpadding='0'> <!--rules='groups'-->
+      <FORM name='frmres' action="ReservationServlet" method="post"
+            onSubmit='return validateSubmit()'>
+      <CAPTION class='Form'><BR><%=strCaption%>
+      <COLGROUP>
+        <COL class='Left' align='left'>
+        <COL class='Right' align='char' char=':'>
+
+      <TR><TD class='Padding' colspan='2'>&nbsp;
+
+      <TR><TH><LABEL for='reservation'># Reservation</LABEL>
+          <TD><INPUT type='button' name='search' class='LargeButton'
+                     id='search' value='Search'
+                     onClick="searchReservation()">
+
+      <TR><TD><INPUT type='hidden' name='hotel' value="1">
+              <INPUT type='text' name='reservation' class='Number'
+                     id='reservation' value='<%=res.getReservation()%>'
+                     maxlength='5' title="Codigo de Reserva (Autogenerado)">
+          <TD><SELECT name='status' class='Large' id='status'>
+<%  if ( rslist != null ) {
+        ResStatus s = new ResStatus();
+        for ( int i=0; i < rslist.size(); i++ ) {
+            s = (ResStatus)rslist.get(i);
+            selected = ( s.getStatus().equals( res.getStatus() ) ) ? "selected" : "";
+%>
+                <OPTION value='<%=s.getStatus()%>' <%=selected%>> <%=s.getDescription()%>
+<%      }
+    }%>
+              </SELECT>
+
+      <TR><TD colspan='2'><LABEL for='nights'>Room Nights</LABEL>
+
+      <TR><TD><INPUT type='text' name='nights' class='Number' id='nights'
+                     value='<%=res.getNights() %>'
+                     maxlength='3' onChange="showTotal(this.form)">
+          <TD><INPUT type='button' name='availability' class='LargeButton'
+                     id='availability' value='Availability'
+                     onClick="javascript:showAvailability()">
+
+      <TR><TH><LABEL for='arrival' align='left'>
+                  <FONT color='red'>*</FONT>&nbsp;Arrival
+              </LABEL>
+          <TH align='left'>
+              <LABEL for='departure'>
+                  <FONT color='red'>*</FONT>&nbsp;Departure
+              </LABEL>
+
+      <TR><TD><INPUT type='text' name='arrival' class='Number' id='arrival'
+                     maxlength='10' value='<%=textArrival %>'
+                     onChange='' onKeyUp='disableSaveButton(document.frmres)'>
+          <TD><INPUT type='text' name='departure' class='Number' id='departure'
+                     maxlength='10' value='<%=textDeparture %>'
+                     onChange='' onKeyUp='disableSaveButton(document.frmres)'>
+
+      <TR><TD><LABEL for='adults'>Adults</LABEL>
+          <TD><LABEL for='children'>Children</LABEL>
+
+      <TR><TD><INPUT type='text' name='adults' class='Number' id='adults'
+                     value='<%=res.getAdults() %>' maxlength='2'>
+          <TD><INPUT type='text' name='children' class='Number' id='children'
+                     value='<%=res.getChildren() %>' maxlength='2'>
+
+      <TR><TD><LABEL for='roomType'>Room Type</LABEL>
+          <TD><LABEL for='quantity' disabled>Package</LABEL>
+
+      <TR><TD>
+          <!-- Todo: Actualizar campo Tarifa y Total cuando cambia tipo-->
+              <SELECT name='roomType' class='Large' id='roomType'>
+<%  if ( rtlist != null ) {
+        RoomType rt = new RoomType();
+        for ( int i=0; i < rtlist.size(); i++ ) {
+            rt = (RoomType)rtlist.get(i);
+            selected = ( rt.getRoomType().equals(res.getRoomType() ) ) ? "selected" : "";
+%>
+                  <OPTION value='<%=rt.getRoomType() %>' <%=selected%> ><%=rt.getDescription() %>
+<%      }
+    } %>
+              </SELECT>
+          <TD>
+          <!-- Todo: Actualizar campo Tarifa y Total cuando cambia tipo-->
+              <SELECT name='package' class='Large' id='roomType' disabled>
+<%  /* if ( lp != null ) {
+        Package rt = new Package();
+        for ( int i=0; i < lp.size(); i++ ) {
+            p = (Package)lp.get(i);
+            selected = ( p.getPackageCode().equals(res.getPackageCode()) )?"selected":""; */
+%>
+                  <OPTION value='Select Package<%--<%=rt.getPackageCode()%>--%>' <%--<%=selected%>--%> selected>
+                 <%--<%=rt.getDescription()%>--%>
+<%      /*}
+              }*/ %>
+              </SELECT>
+
+      <TR><TD><LABEL for='roomRate'>Room Number</LABEL>
+          <TD><LABEL for='roomRate'>Room Rate</LABEL>
+
+      <TR><TD><INPUT type='text' name='roomNumber' class='Number' id='roomNumber'
+                     value='<%=res.getRoomNumber()%>' maxlength='7'
+                     onChange="showTotal(this.form)">
+          <TD><INPUT type='text' name='roomRate' class='Number' id='roomRate'
+                     value='<%=res.getRoomRate()%>' maxlength='2'>
+
+      <TR><TD><LABEL for='quantity'>Quantity Rooms</LABEL>
+          <TH align='left'><LABEL>Balance</LABEL>
+
+      <TR><TD><INPUT type='text' name='quantity' class='Number' id='quantity'
+                     value='<%=res.getQuantity()%>' maxlength='3'>
+          <TD><INPUT type='text' name='balance' class='Number'
+                     value='<%=res.getTotal()%>' style='font-weight: bold'
+                     ReadOnly>
+
+      <TR><TH><LABEL for='instructions'>Spec. Atentions | Instructions</LABEL>
+          <TD><INPUT type='button' name='addguest' class='LargeButton'
+                     id='availability' value='Guest Information'
+                     onClick="javascript:addGuest()">
+
+      <TR><TD colspan='2'>
+          <TEXTAREA name='instructions' rows='4' cols='40'
+                    style='color: blue; width: 328px'><%=res.getInstructions()%></TEXTAREA>
+
+      <!--
+      <TR><TD colspan='2'>
+              <SELECT multiple name='atentions'
+                      class='XLarge' style='border: none' size='2'>
+                  <OPTION value='1'>Canasta de Frutas
+                  <OPTION value='2'>Botella Champagne
+                  <OPTION value='3'>Tabla de Quesos
+                  <OPTION value='4'>Otras Atenciones
+              </SELECT>
+      -->
+
+      <TR><TD class='Padding' colspan='2'>&nbsp;
+
+      <TR><TD colspan='2' align='center'>
+              <INPUT type='submit' name='show' class='MediumButton' value="Show"
+                     onClick='showReservation(document.frmres.reservation.value)'>
+              <INPUT type='submit' name='save' class='MediumButton' value="Save"
+                     onClick='saveReservation(document.frmres.reservation.value)'>
+              <INPUT type='submit' name='delete' class='MediumButton' value="Delete"
+                     onClick='deleteReservation(document.frmres.reservation.value)'>
+              <INPUT type='button' name='reset' class='MediumButton' value="New"
+                     onClick='resetFields(document.frmres)'>
+              <!--<INPUT type='submit' name='exit' value="Exit"
+                     onClick='window.close()'>-->
+
+      <TR><TD class='Padding' colspan='2'>&nbsp;
+
+    </TABLE>
+  </FORM>
+
+</BODY>
+
+</HTML>

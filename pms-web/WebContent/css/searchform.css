@@ -1,0 +1,31 @@
+
+table.Search {
+    width:         700px;
+    border:        none;
+    border-right:  solid 1px gray;
+    border-bottom: solid 1px gray;
+    background:    #F5F5F5; /* whitesmoke */
+}
+
+caption.Search {
+    height:       40px;
+    padding:      10px;
+    border-right: solid 1px gray;
+    background:   #87CEFA; /* lightskyblue */
+    color:        #FFF;
+    /*font:       bold 12pt Verdana, Serif;*/
+    font:         normal 1.2em Verdana, Serif;
+    text-align:   left;
+}
+
+tbody.Search {
+    height:      60px;
+    margin-top:  20px;
+    padding:     0px;
+    padding-top: 30px;
+    text-align:  center;
+}
+
+select, input { width: 160px; }
+
+input.button { width: 80px; }

@@ -1,0 +1,45 @@
+<!-- TODO: AL ENVIAR EL FORMULARIO TODOS LOS SUBMIT CONTIENEN VALORES-->
+
+<thead class="Toolbar" style="background: peachpuff;" />
+    <tr><td colspan="2">
+
+        <button type="button" name="new" value="new" tabindex="1"
+                onclick="newReservation()">
+            <img alt="New Reservation" src="images/nuevo04.jpg">
+        </button>
+        <input type="submit" id="show" name="show"
+               value="Show"
+               onClick="showReservation(document.frmres.reservation.value)">
+        <!--
+        <button type="submit" name="show" value="show"
+                onclick="showReservation(document.frmres.reservation.value)">
+            <img alt="Show Reservation" src="images/">
+        </button>
+        -->
+        <!--
+        <input type="submit" id="save" name="save"
+               value="Save"
+               onClick="saveReservation(document.frmres.reservation.value)">
+        -->
+        <!--
+        <button type="button" id="save" name="save" value="save"
+                tabindex="3"
+                onclick="saveReservation(document.frmres.reservation.value)">
+            <img alt="Save Reservation" src="images/save.gif">
+        </button>
+        -->
+        <button type="button" id="search" name="search" value="search"
+                tabindex="2"
+                onclick="searchReservation()">
+            <img alt="Search Reservation" src="images/lupa01.jpg">
+        </button>
+        <!--
+        <input type="button" id="availability" name="availability"
+               value="Avail."
+               onClick="showAvailability()">
+        -->
+        <button type="button" id="availability" name="availability"
+                value="search" tabindex="2"
+                onclick="showAvailability()">
+            <img alt="Show Availability by date" src="images/calendar.jpg">
+        </button>

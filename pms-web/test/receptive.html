@@ -1,0 +1,90 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<HTML>
+<HEAD>
+  <META name="Author" content="Johnny Olivas">
+  <META http-equiv="Content-Type" content="text/html; charset=Latin-1">
+  <TITLE>Reserva de grupo</TITLE>
+  <LINK rel='stylesheet' type='text/css' href='stylesheet.css'>
+
+</HEAD>
+
+<BODY>
+  <FORM method='post' name='frmGroup' action="group.jsp">
+    <TABLE title="testing title attribute" align='center'>
+      <CAPTION>Reserva de grupo</CAPTION>
+      <TR id='fila1'>
+        <TD class='label'><LABEL for='code'>C&#243;digo</LABEL>
+
+        <TD><INPUT type='text' name='txtResvCode' id='code'
+                       title="El código de reserva se genera automaticamente">
+            <LABEL for='individual'>Individual</LABEL>
+            <INPUT class='noborder' type='radio' name='rbtFilter' id='individual'
+                   value="IND" checked> <LABEL for='serie'>Serie</LABEL>
+            <INPUT class='noborder' type='radio' name='rbtFilter' id='serie'
+                   value="SER">
+            <LABEL for='incentivo'>Incentivo</LABEL>
+            <INPUT class='noborder' type='radio' name='rbtFilter' id='incentivo'
+                   value="INC">
+
+      <TR id='fila3'>
+        <TD class='label'><LABEL for='customer' size='10'>Cliente</LABEL>
+
+        <TD><INPUT type='text' name='txtCustomer' id='customer' size='60'>
+            <BUTTON type='button' name='btnFood' value="Busca">Busca</BUTTON>
+
+      <TR id='fila2'>
+        <TD class='label'><LABEL for='group' size='10'>Grupo</LABEL>
+
+        <TD><INPUT class='remark' type='text' name='txtDescription'
+                   id='group' size='53'>
+
+      <TR id='fila4'>
+        <TD class='label'><LABEL for='arrival'>Llegada</LABEL>
+
+        <TD><INPUT type='text' name='txtArrival' id='arrival'>
+        <LABEL for='in-time'>Hora</LABEL> <INPUT type='text'
+               name='txtCheckin' id='in-time'>
+
+      <TR id='fila5'>
+        <TD class='label'><LABEL for='departure'>Salida</LABEL>
+
+        <TD><INPUT type='text' name='txtDeparture' id='departure'>
+            <LABEL for='out-time'>Hora</LABEL> <INPUT type='text'
+                   name='txtCheckout' id='out-time'>
+
+      <TR id='fila6'>
+        <TD class='label'><LABEL for='rooms'>Habitaciones</LABEL>
+
+        <TD><INPUT type='text' name='txtRoomsQtty' id='rooms' size='11'>
+            <BUTTON type='button' name='btnTypes' value='Distrib.'>Distrib.</BUTTON>
+            <LABEL for='food'>&emsp; &emsp;Incluye Alimentaci&#243;n</LABEL>
+            <INPUT class='noborder' type='checkbox' name='chkFood' id='food' checked>
+            <BUTTON type='button' name='btnFood' value="Detalle">Detalle</BUTTON>
+
+      <TR id='fila8'>
+        <TD class='label'><LABEL for='contact'>Contacto</LABEL>
+
+        <TD><INPUT name='txtContact' id='contact' size='60'>
+
+      <TR id='fila9' rowspan='3'>
+        <TD class='label' valign='top'><LABEL for='comments'>Observaciones</LABEL>
+        <TD>
+          <textarea name='txtComments' id='comments' rows='3' cols='60'></textarea>
+
+
+      <TR class='footer'>
+        <TD> 
+
+        <TD><BUTTON value="Guardar" type='submit'>Guardar</BUTTON>
+            <BUTTON value="Limpiar" type='reset'>Limpiar</BUTTON>
+
+      <TR class='footer'>
+        <TD> <TD> 
+
+    </TABLE>
+  </FORM>
+</BODY>
+</HTML>

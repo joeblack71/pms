@@ -1,0 +1,180 @@
+
+/*
+ * Colors custom used to
+ *  #90d0ff | rgb(223,239,255) 'turquise'
+ *  #4467a2 | rgb(68,103,162)  'nice blue'
+ *  #F5F5F5 | rgb(245,245,245) 'whitesmoke'
+ */
+
+BODY {}
+BODY.Form,
+BODY.Menu { background: aliceblue; }
+
+A:link,
+A:visited { color: blue; }
+A:active  { color: fuchsia; }
+
+A.Menu:link,
+A.Menu:visited { color: white; }
+A.Menu:active  { color: silver; }
+
+A.Menu { text-decoration: none; } /* underline */
+
+UL.Menu {
+    font-size:   12;
+    font-weight: bold;
+}
+
+EM { font-weight: bold; }
+
+TABLE {
+    border-collapse: collapse;
+    font-size:       10pt;
+    font-family:     Serif, Arial, Verdana;
+}
+TABLE.Login {
+    border-style: none;
+    width:        280px;
+    background:   lightskyblue;
+}
+TABLE.Menu {
+    width:      180px;
+    background: lavander;
+    color:      inherit;
+    font-size:  9pt;
+}
+TABLE.Form {
+    border-style: solid;
+    border-color: lightskyblue;
+    background:   aliceblue;
+    font-size:    8pt;
+}
+
+CAPTION {
+    padding-left: 4px;
+    background: lightgray;
+    color:      black;
+    text-align: left;
+}
+CAPTION.Login {
+    height:      30px;
+    background:  navy;
+    color:       white;
+    font-weight: bold;
+    font-size:   12pt;
+    font-family: Verdana, Serif;
+}
+CAPTION.Menu {
+    background: steelblue;
+    color:      white;
+    font-size:   9pt;
+}
+CAPTION.Form {
+    background: lightskyblue;
+    color:      white;
+    font-size:   14pt;
+}
+
+COL.Tiny   { width:  20px }
+COL.Small  { width:  40px }
+COL.Medium { width:  80px }
+COL.Large  { width: 160px }
+COL.XLarge { width: 320px }
+
+COL.Number { text-align: right }
+COL.Center { text-align: center }
+
+THEAD {
+    background: lightgrey;
+    color:      black;
+}
+
+TBODY {
+    background: inherit;
+    color:      inherit
+}
+TBODY.Report { padding: 0px }
+
+TFOOT {
+    background: #90d0ff; /* turquise */
+    color:      inherit;
+}
+TFOOT.Form {
+    background: #90d0ff;
+    color:      white;
+    font:       bold 12pt verdana, serif;
+}
+
+TR.Total {
+    background: steelblue;
+    color: white;
+    font:  bold 11pt inherit;
+}
+TR.Distinct { background: lightskyblue; }
+
+LABEL {
+    margin-left: 4px;
+    width:       160px;
+    height:      12px;
+    color:       gray;
+    font-size:   9pt;
+    font-family: Verdana;
+}
+LABEL.Tiny   { width: 20px }
+LABEL.Small  { width: 40px }
+LABEL.Medium { width: 80px }
+/*LABEL.Large  { width: 160px }*/
+
+LABEL.Remark { font-weight: black; }
+
+/* NOTA: Al modificar el valor de 'padding' considerar la
+         modificacion de 'height' y viceversa; puesto que,
+         la variacion de cualquiera de ellos afecta la visualizacion
+         del contenido de la caja. En este caso 'input'.
+*/
+INPUT {
+    color:       gray;
+    font-family: Verdana, Serif, Arial;
+}
+
+INPUT.Button {
+    color:       dimgray;
+    /*font-size: 10pt;*/
+}
+
+INPUT.Box {
+    height: 22px;
+    border: none 1px lightgrey;
+}
+
+INPUT.Tiny   { width:  20px; }
+INPUT.Small  { width:  40px; }
+INPUT.Medium { width:  80px; }
+INPUT.Large  { width: 160px; }
+INPUT.XLarge { width: 323px; }
+
+INPUT.Number { text-align: right }
+INPUT.Remark { color: black }
+INPUT.NoBorder { border: none }
+
+SELECT {
+    margin-top:  1px;
+    font-size:   10pt;
+    font-family: Verdana, Arial, Serif;
+    color:       gray;
+}
+SELECT.Small  { width:  40px; }
+SELECT.Medium { width:  80px; }
+SELECT.Large  { width: 160px; }
+SELECT.XLarge { width: 323px; }
+
+TEXTAREA {
+    border:      solid 1px silver;
+    background:  #FCFCFC;
+    color:       dimgray;
+    font-size:   10pt;
+    font-family: Arial;
+}
+
+BUTTON.Large  { width: 160px; }
+BUTTON.Access { color: white; }

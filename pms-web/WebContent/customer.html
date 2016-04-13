@@ -1,0 +1,151 @@
+
+
+<HTML>
+
+<HEAD>
+    <META http-equiv="Expires=-1" content="text/html; charset=iso-8859-1">
+    <META http-equiv="Content-Style-Type" content="text/css">
+    <LINK rel='stylesheet' type='text/css' href="css/stylesheet.css">
+    <TITLE>Reserva</TITLE>
+<!--<SCRIPT language='JavaScript' src="js/validateForm.js"></SCRIPT>-->
+<SCRIPT type='text/javascript' language='JavaScript'>
+<!--
+function loadDocument(){
+    document.frmgst.lastname1.focus();
+}
+
+function searchGuest(){
+   URL = "reservsearch.jsp?selHotel=1";
+   appeareance = "width=500,height=350,left=50,top=100,scrollbars=yes";
+   // 'refsearch' nos permitira acceder a la ventana
+   refserach = window.open(URL,"search",appeareance);
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY onLoad='loadDocument()'>
+    <TABLE class='Form' border='0' align='CENTER' cellspacing='0' cellpadding='1'> <!--rules='groups' cellspacing='5' cellpadding='10'-->
+    <FORM name='frmgst' action="ServGuest" method="post"
+            onSubmit='return validateSubmit()'>
+    <CAPTION class='Form'>Guest allocated<BR>&nbsp;
+    <COLGROUP>
+      <COL STYLE='text-align: left'><COL
+      <TR><TD  class='Padding' colspan='2'>&nbsp;
+
+      <TR><TH>
+              <LABEL for='lastname1'><FONT color='red'>*</FONT>&nbsp;Lastname(s):</LABEL>
+              <INPUT type='hidden' name='hotel' value="1">
+          <TD><INPUT type='button' name='search' class='Large'
+                     id='search' value='Search'
+                     onClick="searchGuest()">
+
+      <TR><TD><INPUT type='text' name='lastname1' class='Large' id='lastname1'
+                     value='' maxlength='15'>
+                     <!--onKeyUp='disableSaveButton(document.frmgst)'>-->
+          <TD><INPUT type='text' name='lastname2' class='Large' id='lastname2'
+                     value='' maxlength='15'>
+
+      <TR><TH colspan='2'>
+              <LABEL for='firstname'><FONT color='red'>*</FONT>&nbsp;Firstname(s):</LABEL>
+
+      <TR><TD><INPUT type='text' name='firstname' class='Large' id='firstname'
+                     value='' maxlength='15'
+                     onKeyUp='disableSaveButton(document.frmgst)'>
+          <TD>
+              <SELECT name='nationality' class='Large' id='nationality'>
+  <%          if ( ls != null ) {
+                ResStatus s = new ResStatus();
+                for(int i=0;i < ls.size();i++){
+                  s = (ResStatus)ls.get(i);
+                  if(s.getStatus().equals(res.getStatus()))
+                    selected="selected";
+                  else selected="";%>
+                <OPTION value=""> NATIONALITY
+  <%            }
+              }%>
+              </SELECT>
+
+
+      <TR><TH colspan='2'>
+          <LABEL for='address1'><FONT color='red'>*</FONT>&nbsp;Address:</LABEL>
+
+      <TR><TD colspan='2'>
+              <INPUT type='text' name='address1' class='XLarge' id='address1'
+                     value='' maxlength='50'>
+      <TR><TD colspan='2'>
+              <INPUT type='text' name='address2' class='XLarge' id='address2'
+                     value='' maxlength='50'>
+
+      <TR><TH colspan='2'>
+          <LABEL for='country'>&nbsp;&nbsp;&nbsp;City (residence):</LABEL>
+
+      <TR><TD><INPUT type='text' name='city' class='Large' id='city'
+                     maxlength='10' value=''
+                     onChange='' >
+          <TD><SELECT name='country' class='Large' id='country'>
+  <%          if ( ls != null ) {
+                ResStatus s = new ResStatus();
+                for(int i=0;i < ls.size();i++){
+                  s = (ResStatus)ls.get(i);
+                  if(s.getStatus().equals(res.getStatus()))
+                    selected="selected";
+                  else selected="";%>
+                <OPTION value=""> COUNTRY
+  <%            }
+              }%>
+              </SELECT>
+
+      <TR><TH colspan='2'><LABEL for='phone1'>&nbsp;&nbsp;&nbsp;Phones:</LABEL>
+
+      <TR><TD><INPUT type='text' name='phone1' id='phone1' class='Large' maxlength=15>
+          <TD><INPUT type='text' name='phone2' id='phone2' class='Large' maxlength=15>
+
+      <TR><TH colspan='2'><LABEL for='email'>&nbsp;&nbsp;&nbsp;E-mail:</LABEL>
+
+      <TR><TD colspan='2'>
+          <INPUT type='text' name='email' id='phone1' class='XLarge' maxlength=50>
+
+      <TR><TH colspan='2'>
+          <LABEL for='source'>&nbsp;&nbsp;&nbsp;Source / Company:</LABEL>
+  
+      <TR><TD colspan='2'>
+          <SELECT name='source' class='XLarge' id='source'>
+  <%          if ( ls != null ) {
+                ResStatus s = new ResStatus();
+                for(int i=0;i < ls.size();i++){
+                  s = (ResStatus)ls.get(i);
+                  if(s.getStatus().equals(res.getStatus()))
+                    selected="selected";
+                  else selected="";%>
+                <OPTION value=""> SOURCE
+  <%            }
+              }%>
+              </SELECT>
+
+      <TR><TH colspan='2'>
+          <LABEL for='contact'>&nbsp;&nbsp;&nbsp;Contact:</LABEL>
+  
+      <TR><TD colspan='2'>
+          <INPUT type='text' id='contact' class='XLarge' maxlength=30>
+
+      <TR><TD class='Padding' colspan=2>&nbsp;
+
+      <TR><TD  class='Padding' colspan=2 align='center'>
+              <INPUT type='submit' name='show' value="Show"
+                     onClick='showGuest(document.frmgst.guest.value)'>
+              <INPUT type='submit' name='save' value="Save"
+                     onClick='saveGuest(document.frmgst.guest.value)'>
+              <INPUT type='submit' name='delete' value="Delete"
+                     onClick='deleteGuest(document.frmgst.guest.value)'>
+              <INPUT type='button' name='reset' value="New"
+                     onClick='resetFields(document.frmgst)'>
+              <!--<INPUT type='submit' name='exit' value="Exit"
+                     onClick='window.close()'>-->
+
+    </TABLE>
+  </FORM>
+</BODY>
+
+</HTML>
