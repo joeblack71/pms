@@ -1,0 +1,36 @@
+DELIMITER $$
+
+DROP TRIGGER /*!50032 IF EXISTS */ `hotel`.`TGRESERVATION_AU`$$
+
+CREATE
+    /*!50017 DEFINER = 'root'@'localhost' */
+    TRIGGER `TGRESERVATION_AU` AFTER UPDATE ON `ctrlt_reservation` 
+    FOR EACH ROW BEGIN
+		DECLARE occDay date;
+		DECLARE quantity int;
+		DELETE FROM CTRLT_OCCUPATION
+         WHERE MAINP_ID_HOTEL = NEW.MAINP_ID_HOTEL
+		   AND RESVP_ID_RESERVATION = NEW.RESVP_ID_RESERVATION;
+		## Arrival MUST BE less than Departure !!
+		SET quantity = 1;
+		WHILE quantity <= NEW.RESVC_QUANTITY DO
+		    SET occDay = NEW.RESVC_ARRIVAL;
+		    REPEAT
+			    INSERT INTO CTRLT_OCCUPATION
+			         VALUES( NEW.MAINP_ID_HOTEL,
+							 NEW.RESVF_ID_ROOMTYPE,
+							 occDay,
+							 NEW.RESVP_ID_RESERVATION,
+							 NEW.RESVF_ID_ROOM,
+							 NEW.RESVC_ADULTS,
+							 NEW.RESVC_CHILDREN,
+							 NEW.RESVC_STATUS );
+				SET occDay = adddate(occDay, INTERVAL 1 DAY);
+		    UNTIL occDay >= NEW.RESVC_DEPARTURE
+		    END REPEAT;
+		    SET quantity = quantity + 1;
+		END WHILE;
+	END;
+$$
+
+DELIMITER ;

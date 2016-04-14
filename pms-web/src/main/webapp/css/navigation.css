@@ -1,0 +1,84 @@
+
+body { 
+    background: #EEE; /*#F5F5F5; /* whitesmoke */
+    color:      #808080; /* gray */
+}
+
+.brand {
+    width: 140px;
+    /*padding: 0.2em;*/
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid silver;
+    border-bottom: 1px solid silver;
+    /*border: solid 1px;*/
+    background: whitesmoke;
+    color: salmon;
+    font-size: 1.1em;
+    font-style: italic;
+    font-weight: bolder;
+    text-align: center;
+    /*text-shadow: 0.5em 0.5em black;*/
+}
+
+.date { 
+    font:       0.6em verdana, serif;
+    font-style: italic;
+}
+
+.user { 
+    font:       0.7em verdana, serif;
+    font-style: italic;
+}
+
+.copy { 
+    text-align: justify;
+    font:       0.6em verdana, serif;
+    font-style: italic;
+    color:      salmon;
+}
+
+.remark { font-weight: bold; }
+
+.center { text-align: center; }
+
+.menu { font: 0.7em verdana; }
+
+.navigation {
+	padding: 10%;
+    width: 80%;
+}
+
+.navigation li {
+    list-style: none;
+    background-color: whitesmoke; /* blue */
+    border-top: solid 2px #FFF; /* white */
+    border-left: solid 1px #FFF; /* white */
+    text-align: left;
+}
+
+.navigation li a {
+    border-bottom: 1px solid #CCC;/*#FA8072; /* salmon */
+    border-right: 1px solid #CCC; /*    gray */
+    padding: .25em;
+    display: block;
+    text-decoration: none;
+}
+
+.navigation li#exit a {
+    color: inherit;
+}
+
+a:link, a:visited { color: #888; } /* gray*/
+a:active { color: #FA8072; } /* salmon */
+a:hover { 
+    background-color: #FA8072; /* salmon */
+    color:            #ffffe0; /* lightyellow */
+}
+
+p a:link, p a:visited { color: #888; } /* gray */
+
+.navigation li#youarehere a { background-color: #09f }
+
+p a:link { color: #000 }
+p a:visited { color: #000 }

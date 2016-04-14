@@ -1,0 +1,45 @@
+
+a:link, a:visited {
+    background: inherit;
+    color:      #000;
+}
+
+table.searchForm {
+    border: solid 4px inactivecaptiontext;
+}
+
+table.searchForm label, input, select {
+	font-size: 0.95em; 
+}
+
+td.tableContainer {
+    padding: 0px;
+    border: solid 10px inactiveborder;
+}
+
+table.chart {
+    height:     250px;
+    color:      buttontext;
+    background-color: buttonface;
+    font-size: 0.9em;
+    font-family: serif;
+}
+
+table.chart caption {
+	background-color: inactiveborder;
+	vertical-align: top;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.number {
+	padding-right: 1em;
+	text-align: right;
+}
+
+/*.header {
+	border: thin;
+	background: inherit;
+	font-weight: bold;
+	text-align: center;
+}*/

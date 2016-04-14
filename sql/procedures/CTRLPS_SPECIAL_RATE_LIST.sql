@@ -1,0 +1,24 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `hotel`.`CTRLPS_SPECIAL_RATE_LIST`$$
+
+CREATE DEFINER=`root`@`localhost`
+
+PROCEDURE `CTRLPS_SPECIAL_RATE_LIST`(
+					    IN p_id_hotel	int,
+						IN p_made_by	varchar(06),
+						IN p_status		varchar(01) )
+BEGIN
+	DECLARE BLANK varchar(01) DEFAULT '';
+	DECLARE v_status varchar(01) DEFAULT ifnull(p_status, BLANK);
+
+	SELECT  SPRTP_ID_SPECIAL_RATE ID_SPECIAL_RATE,
+			MAINP_ID_HOTEL		  ID_HOTEL,
+			SPRTC_DESCRIPTION	  DESCRIPTION,
+			SPRTC_STATUS		  STATUS
+	  FROM CTRLT_SPECIAL_RATE
+	 WHERE p_id_hotel = MAINP_ID_HOTEL
+       AND ( v_status = BLANK OR v_status = SPRTC_STATUS );
+END$$
+
+DELIMITER ;

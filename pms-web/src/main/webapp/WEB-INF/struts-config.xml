@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources />
+	
+	<form-beans>
+		<form-bean name="LoginForm" type="com.myco.central.web.reservations.form.LoginForm" />
+		<form-bean name="CustomerListForm" type="com.myco.central.web.reservations.form.CustomerListForm" />
+		<form-bean name="ReservationForm" type="com.myco.central.web.reservations.form.ReservationForm" />
+		<form-bean name="ReservationListForm" type="com.myco.central.web.reservations.form.ReservationListForm" />
+		<form-bean name="CustomerForm" type="com.myco.central.web.reservations.form.CustomerForm" />
+		<form-bean name="RoomForm" type="com.myco.central.web.reservations.form.RoomForm" />
+		<form-bean name="SourceForm" type="com.myco.central.web.reservations.form.SourceForm" />
+		<form-bean name="SourceListForm" type="com.myco.central.web.reservations.form.SourceListForm" />
+		<form-bean name="SpecialRateForm" type="com.myco.central.web.reservations.form.SpecialRateForm" />
+		<form-bean name="AvailabilityForm" type="com.myco.central.web.reservations.form.AvailabilityForm" />
+	</form-beans>
+	
+	<global-exceptions>
+	</global-exceptions>
+	
+	<global-forwards>
+			<forward name="access" path="/login.jsp" />
+	</global-forwards>
+	
+	<action-mappings>
+		<action path="/Authenticate"
+			type="com.myco.central.commons.security.web.AuthenticateAction"
+			name="LoginForm"
+			scope="request">
+			<forward name="success" path="/StartApplication.do"></forward>
+			<forward name="error" path="/login.jsp"></forward>
+		</action>
+		<action path="/StartApplication"
+			type="com.myco.central.web.reservations.action.InitCentralSessionAction">
+			<forward name="success" path="/pages/startApplication.html"></forward>
+		</action>
+
+		<!-- RESERVATION -->
+
+		<action path="/ReservationList"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reservationList"
+			name="ReservationListForm" scope="request" validate="false">
+			<forward name="success" path="/pages/reservationList.jsp" />
+		</action>
+
+		<action path="/ReservationEdit"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reservationEdit"
+			name="ReservationForm" scope="request" validate="false">
+			<forward name="success" path="/pages/reservationEdit.jsp" />
+		</action>
+
+		<action path="/ReservationUpdate"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reservationUpdate"
+			name="ReservationForm" scope="request" validate="false">
+			<forward name="success" path="/pages/reservationEdit.jsp" />
+		</action>
+		
+		<action path="/ReservationSearch"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reservationSearch">
+			<forward name="success" path="/pages/reservationSearch.jsp" />
+		</action>
+
+		<action path="/ReservationAddGuest"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reservationAddGuest"
+			name="CustomerForm" scope="request" validate="false">
+			<forward name="success" path="/pages/customerEdit.jsp" />
+		</action>
+		
+		<action path="/ReservationRefresh" forward="/options.jsp" />
+		
+		<action path="/ReservationRemoveGuest"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reservationRemoveGuest"
+			name="ReservationForm" scope="request" validate="false">
+			<forward name="success" path="/pages/_reservationGuests.jsp" />
+		</action>
+		<!-- Ajax -->
+		<action path="/_ReloadGuests"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="reloadGuests">
+			<forward name="success" path="/pages/reservationEdit.jsp" />
+		</action>
+		
+		<action path="/_GetRoomRate"
+			type="com.myco.central.web.reservations.action.ReservationDispatchAction"
+			parameter="getRoomRate">
+			<forward name="success" path="/pages/_roomRateValue.jsp" />
+		</action>
+		
+		<!-- AVAILABILITY -->
+		<action path="/RoomTypeAvailability"
+			type="com.myco.central.web.reservations.action.AvailabilityDispatchAction"
+			parameter="roomTypeAvailability"
+			name="AvailabilityForm" scope="request">
+			<forward name="success" path="/pages/availability.jsp" />
+		</action>
+
+		<action path="/ShowRoomTypeAvailability"
+			type="com.myco.central.web.reservations.action.AvailabilityDispatchAction"
+			parameter="showAvailability"
+			name="AvailabilityForm" scope="request">
+			<forward name="success" path="/pages/availability.jsp" />
+		</action>
+
+		<action path="/flashStatus"
+			type="com.myco.central.web.reservations.action.AvailabilityDispatchAction"
+			parameter="showFlashStatus"
+			scope="request">
+			<forward name="success" path="/pages/flashStatus.jsp" />
+		</action>
+
+		<!-- CUSTOMER -->
+
+		<action path="/customerList"
+			type="com.myco.central.web.reservations.action.CustomerDispatchAction"
+			parameter="customerList"
+			name="CustomerListForm" scope="request" validate="false">
+			<forward name="success" path="/pages/customerList.jsp" />
+		</action>
+
+		<action path="/customerEdit"
+			type="com.myco.central.web.reservations.action.CustomerDispatchAction"
+			parameter="customerEdit"
+			name="CustomerForm" scope="request" validate="false">
+			<forward name="success" path="/pages/customerEdit.jsp"></forward>
+		</action>
+
+		<action path="/customerUpdate"
+			type="com.myco.central.web.reservations.action.CustomerDispatchAction"
+			parameter="customerUpdate"
+			name="CustomerForm" scope="request" validate="false">
+			<forward name="success" path="/pages/customerEdit.jsp"></forward>
+		</action>
+
+		<!-- ROOM -->
+
+		<action path="/RoomList"
+			type="com.myco.central.web.reservations.action.RoomDispatchAction"
+			parameter="roomList"
+			name="RoomForm" scope="request" validate="false">
+			<forward name="success" path="/pages/roomList.jsp"></forward>
+		</action>
+
+		<action path="/RoomEdit"
+			type="com.myco.central.web.reservations.action.RoomDispatchAction"
+			parameter="roomEdit"
+			name="RoomForm" scope="request" validate="false">
+			<forward name="success" path="/pages/roomEdit.jsp"></forward>
+		</action>
+
+		<action path="/RoomSave"
+			type="com.myco.central.web.reservations.action.RoomDispatchAction"
+			parameter="roomSave"
+			name="RoomForm" scope="request" validate="false">
+			<forward name="success" path="/pages/roomEdit.jsp"></forward>
+		</action>
+
+		<action path="/RoomPrint"
+			type="com.myco.central.web.reservations.action.RoomDispatchAction"
+			parameter="roomPrint"
+			name="RoomForm" scope="request" validate="false">
+			<forward name="success" path="/pages/roomEdit.jsp"></forward>
+		</action>
+
+		<!-- SOURCE -->
+
+		<action path="/SourceList"
+			type="com.myco.central.web.reservations.action.SourceDispatchAction"
+			parameter="sourceList"
+			name="SourceListForm" scope="request" validate="false">
+			<forward name="success" path="/pages/sourceList.jsp"></forward>
+		</action>
+
+		<action path="/SourceEdit"
+			type="com.myco.central.web.reservations.action.SourceDispatchAction"
+			parameter="sourceEdit"
+			name="SourceForm" scope="request" validate="false">
+			<forward name="success" path="/pages/sourceEdit.jsp"></forward>
+		</action>
+
+		<action path="/SourceSave"
+			type="com.myco.central.web.reservations.action.SourceDispatchAction"
+			parameter="sourceSave"
+			name="SourceForm" scope="request" validate="false">
+			<forward name="success" path="/pages/sourceEdit.jsp"></forward>
+		</action>
+
+		<action path="/SelectSource"
+			type="com.myco.central.web.reservations.action.SourceDispatchAction"
+			parameter="sourceList"
+			name="SourceListForm" scope="request" validate="false">
+			<forward name="success" path="/pages/selectSource.jsp"></forward>
+		</action>
+
+		<action path="/SourcePrint"
+			type="com.myco.central.web.reservations.action.SourceDispatchAction"
+			parameter="sourcePrint"
+			name="SourceForm" scope="request" validate="false">
+			<forward name="success" path="/pages/sourceEdit.jsp"></forward>
+		</action>
+
+		<!-- RATES MANAGEMENT -->
+		<action path="/SpecialRateList"
+			type="com.myco.central.web.reservations.action.SpecialRateDispatchAction"
+			parameter="specialRateList"
+			name="SpecialRateForm" scope="request" validate="false">
+			<forward name="success" path="/pages/specialRateList.jsp"></forward>
+		</action>
+
+		<action path="/SpecialRateEdit"
+			type="com.myco.central.web.reservations.action.SpecialRateDispatchAction"
+			parameter="specialRateEdit"
+			name="SpecialRateForm" scope="request" validate="false">
+			<forward name="success" path="/pages/specialRateEdit.jsp"></forward>
+		</action>
+
+		<action path="/SpecialRateUpdate"
+			type="com.myco.central.web.reservations.action.SpecialRateDispatchAction"
+			parameter="specialRateUpdate"
+			name="SpecialRateForm" scope="request" validate="false">
+			<forward name="success" path="/pages/specialRateEdit.jsp"></forward>
+		</action>
+
+		<action path="/SpecialRatePrint"
+			type="com.myco.central.web.reservations.action.SpecialRateDispatchAction"
+			parameter="specialRatePrint"
+			name="SpecialRateForm" scope="request" validate="false">
+			<forward name="success" path="/pages/specialRateEdit.jsp"></forward>
+		</action>
+
+		<action path="/_AddRoomTypeRate"
+			type="com.myco.central.web.reservations.action.SpecialRateDispatchAction"
+			parameter="_addRoomTypeRate"
+			name="SpecialRateForm" scope="request" validate="false">
+			<forward name="success" path="/pages/_addRoomTypeRate.jsp"></forward>
+		</action>
+
+		<!-- Availability -->
+		<action path="/AvailabilityShow"
+			type="com.myco.central.web.reservations.action.AvailabilityDispatchAction"
+			parameter="availabilityShow"
+			name="AvailabilityForm"
+			scope="request"
+			validate="false">
+			<forward name="success" path="/pages/availabilityShow.jsp"></forward>
+		</action>
+		
+		<!-- Reservation Reports -->
+ 		<action path="/GuestbookingReport"
+ 			type="com.myco.central.web.reservations.action.GuestbookingReportsDispatchAction"
+ 			parameter="guestbookingReport">
+ 			<forward name="success" path="/pages/guestbookingReports.jsp"></forward>
+ 		</action>
+ 		
+		<!-- AJAX calls -->
+
+		<action path="/_RoomRateValue"
+			type="com.myco.central.web.reservations.action.RoomRateDispatchAction"
+			parameter="getRoomRateValue">
+			<forward name="success" path="/pages/_roomRateValue.jsp"></forward>
+		</action>
+
+	</action-mappings>
+	
+	<!--controller bufferSize="4096" debug="0" /-->
+
+    <!-- for tiles support -->
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<message-resources parameter="com.myco.central.struts.ApplicationResources" />
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<!-- Path to XML definition file -->
+		<set-property property="definitions-config"
+			value="/WEB-INF/tiles-defs.xml" />
+
+		<!-- Set Module-awareness to true -->
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+    <!-- for validation support -->
+    <!--plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+      <set-property
+          property="pathnames"
+          value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in-->
+
+</struts-config>
+

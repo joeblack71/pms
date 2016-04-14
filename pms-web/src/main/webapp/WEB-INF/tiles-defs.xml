@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <!-- Default -->
+    <definition name="DefaultLayout" path="/WEB-INF/tiles/DefaultLayout.jsp">
+        <put name="moduleTitle" type="string"/>
+        <put name="title" type="string"/>
+        <put name="header" type="string"/>
+        <!--put name="jstlDefs" type="string"/-->
+        <!--put name="cssDefs" type="string"/-->
+        <!--put name="jsDefs" type="string"/-->
+        <put name="taglibs" value="/WEB-INF/tiles/taglibs.jsp"/>
+        <put name="cssLib" value="/WEB-INF/tiles/cssLib.jsp"/>
+        <!--put name="jsLib" value="/WEB-INF/tiles/jsLib.jsp"/-->
+        <!--put name="menubar" value="/WEB-INF/tiles/menubar.jsp"/-->
+        <!--put name="appHeader" value="/WEB-INF/tiles/appHeader.jsp"/-->
+        <put name="toolbar" type="string"/>
+        <put name="body" type="string"/>
+        <put name="appFooter" value="/WEB-INF/tiles/appFooter.jsp"/>
+    </definition>
+    <!-- Form -->
+    <definition name="FormLayout" path="/WEB-INF/tiles/FormLayout.jsp">
+        <put name="title" type="string" />
+        <!--put name="jstlDefs" type="string"/-->
+
+        <put name="cssLib" value="/WEB-INF/tiles/cssLib.jsp" />
+        <put name="cssDefs" type="string" />
+
+        <put name="jsLib" value="/WEB-INF/tiles/jsLib.jsp" />
+        <put name="jsDefs" type="string" />
+
+        <put name="header" type="string" />
+        <put name="formCaption" type="string" />
+        <put name="formHead" type="string" />
+        <put name="toolbar" type="string" />
+        <put name="formBody" type="string" />
+        <put name="formFoot" type="string" />
+    </definition>
+    <!-- Dialog -->
+    <definition name="DialogLayout" path="/WEB-INF/tiles/DialogLayout.jsp">
+        <put name="moduleTitle" type="string"/>
+        <put name="title" type="string"/>
+        <put name="header" type="string"/>
+        <put name="jstlDefs" type="string"/>
+        <put name="cssDefs" type="string"/>
+        <put name="jsDefs" type="string"/>
+        <put name="taglibs" value="/WEB-INF/tiles/taglibs.jsp"/>
+        <put name="cssLib" value="/WEB-INF/tiles/cssLib.jsp"/>
+        <put name="jsLib" value="/WEB-INF/tiles/jsLib.jsp"/>
+        <put name="appHeader" value="/WEB-INF/tiles/appHeader.jsp"/>
+        <put name="toolbar" type="string"/>
+        <put name="body" type="string"/>
+        <put name="appFooter" value="/WEB-INF/tiles/appFooter.jsp"/>
+    </definition>
+    <!-- Tablas -->
+    <!--definition name="TablaListLayout" path="/WEB-INF/tiles/TablaListLayout.jsp">
+        <put name="moduleTitle" value="Tablas"/>
+        <put name="title" type="string"/>
+        <put name="jstlDefs" type="string"/>
+        <put name="casePrefix" type="string"/>
+        <put name="jsDefs" type="string"/>
+        <put name="taglibs" value="/WEB-INF/tiles/taglibs.jsp"/>
+        <put name="jsLib" value="/WEB-INF/tiles/jsLib.jsp"/>
+        <put name="menubar" value="/WEB-INF/tiles/menubar.jsp"/>
+        <put name="appHeader" value="/WEB-INF/tiles/appHeader.jsp"/>
+        <put name="toolbar" value="/WEB-INF/tiles/TablaListToolbar.jsp"/>
+        <put name="search" type="string"/>
+        <put name="list" type="string"/>
+        <put name="appFooter" value="/WEB-INF/tiles/appFooter.jsp"/>
+    </definition-->
+    <!--definition name="TablaEditLayout" path="/WEB-INF/tiles/TablaEditLayout.jsp">
+        <put name="moduleTitle" value="Tablas"/>
+        <put name="title" type="string"/>
+        <put name="jstlDefs" type="string"/>
+        <put name="casePrefix" type="string"/>
+        <put name="jsDefs" type="string"/>
+        <put name="taglibs" value="/WEB-INF/tiles/taglibs.jsp"/>
+        <put name="jsLib" value="/WEB-INF/tiles/jsLib.jsp"/>
+        <put name="menubar" value="/WEB-INF/tiles/menubar.jsp"/>
+        <put name="appHeader" value="/WEB-INF/tiles/appHeader.jsp"/>
+        <put name="toolbar" value="/WEB-INF/tiles/TablaEditToolbar.jsp"/>
+        <put name="edit" type="string"/>
+        <put name="appFooter" value="/WEB-INF/tiles/appFooter.jsp"/>
+    </definition-->
+    <!--definition name="TablaNewLayout" path="/WEB-INF/tiles/TablaNewLayout.jsp">
+        <put name="moduleTitle" value="Tablas"/>
+        <put name="title" type="string"/>
+        <put name="jstlDefs" type="string"/>
+        <put name="casePrefix" type="string"/>
+        <put name="jsDefs" type="string"/>
+        <put name="taglibs" value="/WEB-INF/tiles/taglibs.jsp"/>
+        <put name="jsLib" value="/WEB-INF/tiles/jsLib.jsp"/>
+        <put name="menubar" value="/WEB-INF/tiles/menubar.jsp"/>
+        <put name="appHeader" value="/WEB-INF/tiles/appHeader.jsp"/>
+        <put name="toolbar" value="/WEB-INF/tiles/TablaNewToolbar.jsp"/>
+        <put name="new" type="string"/>
+        <put name="appFooter" value="/WEB-INF/tiles/appFooter.jsp"/>
+    </definition-->
+</tiles-definitions>

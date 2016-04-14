@@ -1,0 +1,13 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `hotel`.`CTRLPD_SOURCE`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CTRLPD_SOURCE`(
+					IN p_id_source varchar(06) )
+BEGIN
+	UPDATE CTRLT_SOURCE
+	   SET SRCEC_STATUS = "*"
+	 WHERE SRCEP_ID_SOURCE = p_id_source;
+    END$$
+
+DELIMITER ;

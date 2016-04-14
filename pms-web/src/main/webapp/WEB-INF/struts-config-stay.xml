@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+   <data-sources />
+
+   <form-beans>
+   		<form-bean name="AccountChargeForm"
+   			type="com.myco.central.form.AccountChargeForm">
+   		</form-bean>
+   		<form-bean name="RoomStatusForm"
+   			type="com.myco.central.form.RoomStatusForm">
+   		</form-bean>
+   </form-beans>
+
+   <global-exceptions />
+   
+   <global-forwards>
+   		<forward name="access" path="/login.jsp"></forward>
+   </global-forwards>
+   
+   <action-mappings>
+   		<action path="/ShowRoomStatus"
+   			type="com.myco.central.action.RoomDispatchAction"
+   			parameter="showRoomStatus"
+   			name="RoomStatusForm" scope="request" validate="false">
+   			<forward name="success" path="/roomStatus.jsp"></forward>
+   		</action>
+   		<action path="/AccountCharge"
+   			type="com.myco.central.action.AccountChargeAction"
+   			parameter="accountChargeList"
+   			name="AccountChargeForm" scope="request" validate="false">
+   			<forward name="success" path="/roomCharges.jsp"></forward>
+   		</action>
+   		<action path="/EditCharge"
+   			type="com.myco.central.action.AccountChargeAction"
+   			parameter="editCharge"
+   			name="AccountChargeForm" scope="request" validate="false">
+   			<forward name="success" path="/editCharge.jsp"></forward>
+   		</action>
+   		<action path="/UpdateCharge"
+   			type="com.myco.central.action.AccountChargeAction"
+   			parameter="updateCharge"
+   			name="AccountChargeForm" scope="request" validate="false">
+   			<forward name="success" path="/EditCharge.do"></forward>
+   		</action>
+   </action-mappings>
+   
+   <controller bufferSize="4096" debug="0" />
+   <message-resources parameter="com.myco.central.struts.ApplicationResources" />
+</struts-config>
+
