@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+    <META http-equiv="Expires=-1" content="text/html; charset=iso-8859-1">
+    <META http-equiv="Content-Style-Type" content="text/css">
+    <LINK rel='stylesheet' type='text/css' href="stylesheet.css">
+    <TITLE>Room Account</TITLE>
+</HEAD>
+<BODY>
+<FORM name='frmbill'>
+  <TABLE class='Form' border='0' align='CENTER'>
+  <CAPTION class='Form'>Room # 0102
+    <COL class='Medium' style='text-align:left'>
+    <COL class='XLarge'>
+    <COL class='Medium' style='text-align:left'>
+    <COL class='Medium'>
+    <TR><TH><LABEL for='roomNumber'>Room:</LABEL>
+        <TD><INPUT type='hidden' name='hotel' value="1">
+            <INPUT type='text' name='roomNumber' class='Medium'
+                   id='roomNumber' value='0115' maxlength='4'>
+            <INPUT type='button' name='search' class='Medium'
+                   id='search' value='Search'
+                   onClick="searchReservation()">
+        <TH><LABEL for='roomRate'>Rate:</LABEL>
+        <TD><INPUT type='text' name='roomRate' value='220.00'
+                   class='Number' id='roomRate'>
+
+    <TR><TH><LABEL for='guests'>Guest/s:</LABEL>
+        <TD><SELECT name='guests' class='XLarge' id='guests'>
+              <OPTION value='Guests List'>GUESTS
+            </SELECT>
+        <TH><LABEL for='roomRate'>Balance:</LABEL>
+        <TD><INPUT type='text' name='total' value='2980.00'
+                   class='Number' id='total'>
+
+    <TR><TD colspan='4'>&nbsp;
+
+    <TR><TD colspan='4' align='center'>
+            <INPUT type='submit' name='show'   value="New Charge"
+                   onClick='validateResNumber(document.frmbill.reservation.value)'>
+            <INPUT type='submit' name='save'   value="Correct Charge"
+                   onClick='saveReservation(document.frmbill.reservation.value)'>
+            <INPUT type='submit' name='delete' value="Transfer Charge"
+                   onClick='validateResNumber(document.frmbill.reservation.value)'>
+            <INPUT type='button' name='clean'  value="Clean Form" onClick='resetFields()'>
+
+  </TABLE>
+</FORM>
+</BODY>
+</HTML>

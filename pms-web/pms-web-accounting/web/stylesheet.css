@@ -1,0 +1,236 @@
+/* Fonts
+ { font-family: [[family-name | generic-family],]* | inherit }
+   Nota: family-names: Baskerville, "Heisi Mincho W3", Symbol
+         generic-family: serif, sans-serif, cursive, fantasy y monospace
+ { font-style: normal | italic | oblique | inherit }
+ { font-variant: normal | small-caps | inherit }
+ { font-weight: normal| bold | bolder | lighter | {100 - 900} |inherit}
+   Nota: normal = 400; bold = 700
+ { font-stretch condensed | normal | expanded | ultra-.. | extra-.. | semi-..}
+
+ { font: ['font-style' 'font-variant' 'font-weight'] 'font-size' 'font-family'  }
+*/
+
+/* Colors custom used to
+ *  #dfefff | rgb(223,239,255) 'sky blue'
+ *  #90d0ff | rgb(223,239,255) 'turquise'
+ *  #4467a2 | rgb(68,103,162)  'nice blue'
+ *  #1e4275 | rgb(30,66,117)   'dark blue'
+ */
+
+/* 'Body Stylesheet':
+ * En esta zona se definen los atributos que tendran
+ * los elementos pertenecientes al formulario
+ */
+
+BODY {}
+BODY.Form,
+BODY.Menu { background: steelblue; }
+
+A:link,
+A:visited { color: blue }
+A:active { color: fuchsia }
+
+A.Menu { text-decoration: none } /* underline */
+A.Menu:link,
+A.Menu:active { color:  white }
+A.Menu:visited { color: silver }
+
+UL.Menu {
+    font-size:      12;
+    font-weight:    bold
+}
+
+EM { font-weight: bold; }
+
+/* 'Table Stylesheet':
+ * En esta zona se definen los atributos que tendran
+ * los elementos pertenecientes al formulario
+ */
+
+TABLE {
+    border: none;
+    color:  steelblue;
+    font:   10pt verdana, serif;
+}
+/* border-style: none, hidden, solid */
+TABLE.Form {
+    margin: 1.2em; /* Separa la tabla del borde interior de la ventana */
+    border: solid 5px steelblue; /* border-style border-width border-color */
+    background: inherit;
+    font:   8pt verdana, serif;
+}
+TABLE.Menu {
+    border: solid 1px;
+    width:  140px;
+    color:  silver;
+    font:   normal 9pt verdana, serif
+}
+TABLE.Logging {
+    border:     solid 1px;
+    /*width:      220px;*/
+    background: #dfefff;
+}
+
+CAPTION.Form {
+    background: steelblue;
+    text-align: left;
+    color:      white;
+    font:       bold 12pt verdana, serif;
+}
+CAPTION.Logging {
+    background: navy;
+    text-align: left;
+    color:      white;
+    font:       bold 11pt verdana, serif;
+}
+CAPTION.Menu {
+    background: steelblue;
+    color:      white;
+    font:       bold 9pt verdana, serif;
+}
+
+COL.Tiny  {width:  20px}
+COL.Small {width:  40px}
+COL.Medium{width:  80px}
+COL.Large {width: 160px}
+COL.XtraL {width: 320px}
+
+THEAD {
+    background: #1e4275; /* dark blue */
+    color:      inherit;
+}
+THEAD.Header {
+    background: #1e4275; /* dark blue */
+    color: white;
+    font-weight:  bold;
+    text-align: center
+}
+
+TBODY {
+    background: inherit;
+    color:      inherit
+}
+
+TFOOT {
+    background: #90d0ff; /* turquise */
+    color:      inherit;
+}
+TFOOT.Form {
+    background: steelblue;
+    text-align: right;
+    color:      white;
+    font:       bold 12pt verdana, serif;
+}
+
+TR.Total {
+    background: steelblue;
+    font:  bold 10pt inherit;
+}
+TR.Distinct { background: #dfefff; } /* sky blue */
+
+/* 'Form Stylesheet':
+ * En esta zona se definen los atributos que tendran
+ * los elementos pertenecientes al formulario
+ */
+
+LABEL { padding: 2px 4px }
+LABEL.Tiny { width: 20px }
+LABEL.Small { width: 40px }
+LABEL.Medium { width: 80px }
+LABEL.Large { width: 160px }
+LABEL.Remark { font-weight:bold }
+
+INPUT {
+    /*margin:  0px 0px 0px 20px;*/
+    padding: 2px 4px;
+    border:  solid 1px silver;
+
+    height:  20px;
+    font:    9pt verdana, serif;
+    color:   steelblue;
+    vertical-align: middle
+}
+
+INPUT.Tiny   { width:  20px }
+INPUT.Small  { width:  40px }
+INPUT.Medium { width:  80px }
+INPUT.Large  { width: 160px }
+INPUT.XLarge { width: 320px }
+
+INPUT.Remark { font: bold 10pt verdana, serif }
+INPUT.NoBorder {border: none }
+
+INPUT.Number { text-align: right }
+
+INPUT.SmallButton {
+    /*margin:      0px 0px;
+    padding:     2px 6px;
+    border:      1px silver outset;
+    height:     20px;*/
+    padding:     0px 0px;
+    border-color: silver;
+    background: whitesmoke; /*ButtonFace; */
+    color:      black;
+    font:       normal 8pt verdana, serif;
+    vertical-align: middle;
+    text-align: center;
+    width:        40px;
+}
+
+INPUT.MediumButton {
+    padding:      0px 0px;
+    border-color: silver;
+    background:   whitesmoke; /*ButtonFace; */
+    color:        black;
+    font:         bold 9pt verdana, serif;
+    vertical-align: middle;
+    text-align:   center;
+    width:        80px;
+}
+
+INPUT.LargeButton {
+    padding:      0px 0px;
+    border-color: silver;
+    background:   whitesmoke; /*ButtonFace; */
+    color:        black;
+    font:         normal 9pt verdana, serif;
+    vertical-align: middle;
+    text-align:   center;
+    width:        160px;
+}
+
+SELECT {
+/*    margin:  2px 6px 4px 16px;*/
+    border-color: silver; /* do nothing */
+    font:    9pt serif, verdana;
+    color:  steelblue;
+    vertical-align: middle
+}
+SELECT.Small  { width:  40px }
+SELECT.Medium { width:  80px }
+SELECT.Large  { width: 161px }
+SELECT.XLarge { width: 326px }
+
+TEXTAREA {
+    border:       1px silver solid;
+    color:        gray;
+}
+
+BUTTON {
+    /*margin:      0px 0px;
+    padding:     2px 6px;
+    border:      1px silver outset;
+    width:      60px;
+    height:     20px;*/
+    background: #1e4275; /* dark blue */
+    color:      white;
+    font:       bold 8pt verdana, serif;
+    text-align: center;
+}
+BUTTON.Large { width: 160Px }
+BUTTON.Access {
+    background:   #1e4275; /* dark blue */
+    font-weight:  bold;
+    color:        white;
+}

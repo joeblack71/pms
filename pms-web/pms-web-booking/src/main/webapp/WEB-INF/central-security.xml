@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+  
+  <bean id="secureHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+       <property name="interceptors">
+			<list>
+				<ref bean="menuIntranetInterceptor" />
+			</list>
+		</property>
+		<property name="urlMap">
+			<props>
+				<prop key="/Reservations.htm">/Reservations.htm</prop>
+  		</props>
+		</property>
+	</bean>
+ 
+  <bean id="msgView" class="org.springframework.web.servlet.ModelAndView">
+    <constructor-arg type="java.lang.String" value="PagM" />
+  </bean>
+	
+	<bean id="menuIntranetInterceptor" 
+	   class="pe.com.myco.tecnologia.menu.sso.web.controller.MenuInterceptor">
+	   <property name="testingFile" ref="autenticaTestConfig"/> 
+	   <property name="msgView" ref="msgView" />
+	</bean>
+    <bean id="autenticaTestConfig" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+	   <property name="location">
+	       <value>classpath:autenticaTest.properties</value>
+	   </property>
+	</bean>
+ 
+</beans>
+		

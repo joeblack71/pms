@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- Beans Inporting -->
+    <import resource="pentho.central-data-test.xml"/>
+
+    <!-- Services Definition  -->
+    <bean id="pentho.central.reservationManager" 
+           class="com.myco.central.reservations.service.impl.ReservationManagerImpl">
+        <property name="reservationService" ref="pentho.central.reservationService"/>
+    </bean>
+
+    <bean id="pentho.central.reservationService" 
+            class="com.myco.central.reservations.service.impl.ReservationServiceImpl">
+        <property name="reservationDao" ref="pentho.central.reservationDao"/>
+    </bean>
+
+    <bean id="pentho.central.occupationService" 
+            class="com.myco.central.reservations.service.impl.OccupationServiceImpl">
+        <property name="occupationDao" ref="pentho.central.occupationDao"/>
+    </bean>
+
+    <bean id="pentho.central.guestService" 
+            class="com.myco.central.reservations.service.impl.GuestServiceImpl">
+        <property name="guestDao" ref="pentho.central.guestDao"/>
+    </bean>
+
+    <bean id="pentho.central.rateService" 
+            class="com.myco.central.reservations.service.impl.RateServiceImpl">
+        <property name="rateDao" ref="pentho.central.rateDao"/>
+    </bean>
+
+    <bean id="pentho.central.RoomService" 
+            class="com.myco.central.reservations.service.impl.RoomServiceImpl">
+        <property name="roomDao" ref="pentho.central.roomDao"/>
+    </bean>
+
+    <bean id="pentho.central.roomtypeService" 
+            class="com.myco.central.reservations.service.impl.RoomTypeServiceImpl">
+        <property name="roomTypeDao" ref="pentho.central.roomtypeDao"/>
+    </bean>
+
+    <bean id="pentho.central.roomtypeStatusService" 
+            class="com.myco.central.reservations.service.impl.RoomTypeStatusServiceImpl">
+        <property name="roomTypeStatusDao" ref="pentho.central.roomtypeStatusDao"/>
+    </bean>
+
+    <!-- Logging Definition (log4j) -->
+    <bean id="pentho.reservations.log4jInitializer"
+        class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+        <property name="targetMethod" value="initLogging" />
+        <property name="arguments">
+            <list>
+                <value>/technical/logs/apps/config/pentho.central.config</value>
+            </list>
+        </property>
+    </bean>
+</beans>

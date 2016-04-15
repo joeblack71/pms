@@ -1,0 +1,256 @@
+
+/*
+ * Colors custom used to
+ *  #90d0ff | rgb(223,239,255) 'turquise'
+ *  #4467a2 | rgb(68,103,162)  'nice blue'
+ *  #6DA6E2 | 'deliciously blue'
+ *  #F5F5F5 | rgb(245,245,245) 'whitesmoke'
+ *  #87CEFA; /* lightskyblue */
+ */
+
+body.Menu { background: #F0FAFF; /* aliceblue */}
+
+a:link,
+a:visited { color: #00F; } /* blue */
+a:active  { color: #F0F; } /* fuchsia */
+
+a.Menu:link,
+a.Menu:visited { color: #FFF; } /* white */
+a.Menu:active  { color: #CCC; } /* silver */
+
+a.Menu { text-decoration: none; } /* underline */
+
+a.Tool { width: 38px; height: 24px; }
+
+span#brand, span#trade { 
+    font-size: 0.8em;
+    font-weight: bold;
+    font-style: italic;
+    color: salmon;
+}
+span#trade { font-size: 0.8em; }
+
+div#copy { color: #FA8072; } /* salmon */
+
+ul.Menu {
+    font-size:   1.2em;
+    font-weight: bold;
+}
+
+em { font-weight: bold; }
+
+table {
+    /*border-collapse: collapse;*/
+    font-size:       1em;
+    font-family:     Serif, Arial, Verdana;
+}
+
+caption {
+    padding-left: 4px;
+    background: #D3D3D3; /* lightgray*/
+    text-align: left;
+}
+
+table.Login {
+    border-style: none;
+    width:        280px;
+    background:   #87CEFA; /* lightskyblue*/
+    color:        #FFFFFF; /* white */
+}
+
+table.Login caption {
+    height:      30px;
+    background:  #008; /* navy */
+    color:       #FFF; /* white */
+    font-weight: bold;
+    font-size:   1.2em;
+    font-family: Verdana, Serif;
+}
+
+table.Menu {
+    background: #4682B4; /* steelblue */
+    color:       #FFF; /* white */
+    font-size:   0.9em;
+}
+
+table.Menu caption {
+    background: #4682B4; /* steelblue */
+    color:       #FFF; /* white */
+    font-size:   0.9em;
+}
+
+table.Form {
+    border: none;
+    background:    threedlightshadow; /* threedlightshadow linen #FFEFD5 PapayaWhip */
+    font-size:     0.80em;
+}
+
+table.Form caption {
+    padding:      6px; 
+    color:        gray; /*#7D615B; /*#A0A0A0; /*#FA8072; /* salmon */
+    background:   #FFDAB9; /* PeachPuff */
+    font:    1.2em Arial Verdana;
+}
+
+table.Search {
+	border: 1px solid;
+	/*width:  440px;*/
+	font:   .8em normal verdana;
+}
+	
+table.Search caption {
+    padding:    2px;
+    /*border: 	1px inset;*/
+    color:      inherit;
+    background: whitesmoke;
+    font:       1em Verdana, Serif;
+    text-align: left;
+}
+
+table.Search tbody {
+}
+
+table.Listing {
+    /*border-collapse: collapsed;*/
+    border: none;
+    width:  600px;
+    color: inherit;
+    background: inherit;
+    font:    0.9em Arial;
+}
+
+table.Listing thead {
+    color: white;
+    background: lightskyblue;
+    font:  .9em Verdana;
+}
+
+table.Listing tr.Odd {
+	background: whitesmoke;
+}
+
+thead {
+    color:      #000; /* black */
+	background: #D3D3D3; /* lightgrey */
+}
+
+thead.Toolbar {
+    background: inherit;
+}
+
+thead.Toolbar input, button, img {
+	margin: 4px 6px;
+    border: none;
+    vertical-align: middle;
+    width:  28px;
+    height: 24px;
+}
+
+thead.Toolbar td {
+    border: 1px inset;
+}
+
+tbody.Report { padding: 0px }
+
+tfoot {
+    /*background: #90d0ff; /* turquise */
+    color:      inherit;
+}
+tfoot.Form {
+    /*background: #90d0ff;*/ /* turquise */
+    background: #FFDAB9; /* PeachPuff */
+    color:      gray;
+    font:       normal 1em verdana, serif;
+}
+
+tr.Total {
+    background: #4682B4; /* steelblue */
+    color:      #FFF; /* white */
+    /*font:  bold 1.1em inherit;*/
+}
+tr.Distinct { background: #F5F5F5; /* whitesmoke */}
+
+td.tableContainer {
+	border: 1px inset; /* inset ridge groove */
+	padding: 6px 26px;
+	width: 400px;
+}
+
+td.tableContainer table {
+	padding: 20px 40px;
+	height: 360px;
+}
+
+td.tableContainer thead {
+	background: inherit;
+	color: gray;
+	font-size: 1em;
+	font-weight: bold;
+	font-family: verdana;
+}
+
+td.tableContainer td {
+	padding: 1px 16px;
+}
+
+/* NOTA: Al modificar el valor de 'padding' considerar la
+         modificacion de 'height' y viceversa; puesto que,
+         la variacion de cualquiera de ellos afecta la visualizacion
+         del contenido de la caja. En este caso 'input'.
+*/
+input {
+	/*padding: 2px 4px;
+    height: 22px;*/
+	color:  #888; /* gray */
+    font:  	0.9em Verdana, Serif, Arial;
+}
+
+input.Box {
+	padding: 2px 4px;
+    height: 22px;
+	border: 1px inset; /* TODO cambiar a inset */
+    background:  #FCFCFC; /* whitesmoke */
+}
+
+label {
+    color:       gray;
+    background:  #FCFCFC; /* lighter than whitesmoke */
+    font: 		 1em Serif, Arial;
+}
+
+label.FieldInfo {
+    height: 	22px;
+	border: 	1px inset;
+	padding: 	2px 4px;
+	color: 		inherit;
+	background: inherit;
+    font:   	0.9em normal Verdana, Serif, Arial;
+}
+
+td label {
+    color:      inherit;
+    background: inherit;
+    font: 		0.85em bold Verdana;
+}
+
+select {
+    margin:   2px 2px;
+    color:        #888; /* gray */
+    font:  	0.9em Verdana, Serif, Arial;
+}
+
+textarea {
+	margin: 0px;
+	height: 46px;
+}
+
+.Tiny   { width: 20px; }
+.Small  { width: 40px; }
+.Medium { width: 40px; }
+.Large  { width: 160px; }
+.XLarge { width: 356px; }
+
+.Number { text-align: right; }
+.Center { text-align: center; }
+.Remark { color: black; }
+.NoBorder { border: none }

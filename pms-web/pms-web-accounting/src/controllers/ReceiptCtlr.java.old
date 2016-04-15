@@ -1,0 +1,96 @@
+
+package controllers;
+
+import java.sql.*;
+import java.util.ArrayList;
+
+import beans.Receipt;
+import dispatchers.ReceiptDisp;
+import dispatchers.ConProvider;
+
+public class ReceiptCtlr {
+
+    /** Creates new ReceiptCtlr */
+    public ReceiptCtlr() {
+    }
+
+    public static boolean validate(Receipt r){
+        Connection c = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(c);
+        rd.setReceipt(r);
+        boolean flag = rd.validate();
+        try { c.close();
+        } catch (Exception e){}
+        return flag;
+    }
+
+    public static boolean insert(Receipt r){
+        Connection c = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(c);
+        rd.setReceipt(r);
+        boolean flag = rd.insert();
+        try { c.close();
+        } catch (Exception e){}
+        return flag;
+    }
+
+    public static boolean update(Receipt r){
+        Connection c = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(c);
+        rd.setReceipt(r);
+        boolean flag = rd.update();
+        try { c.close();
+        } catch (Exception e){}
+        return flag;
+    }
+
+    public static boolean cancel(Receipt r){
+        Connection c = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(c);
+        rd.setReceipt(r);
+        boolean flag = rd.cancel();
+        try { c.close();
+        } catch (Exception e){}
+        return flag;
+    }
+
+    public static boolean delete(Receipt r){
+        Connection c = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(c);
+        rd.setReceipt(r);
+        boolean flag = rd.delete();
+        try { c.close();
+        } catch (Exception e){}
+        return flag;
+    }
+
+    public static ArrayList chargeSome(Receipt r, java.sql.Date pattern){
+        Connection con = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(con);
+        rd.setReceipt(r);
+        //boolean flag = rd.chargeSome();
+        ArrayList lrec = rd.chargeSome(pattern);
+        try { c.close();
+        } catch (Exception e){}
+        return lrec;
+    }
+
+    public static ArrayList chargeCustomerReceipts(String customer, int period){
+        Connection con = ConProvider.getMySQLCon("company");
+        ReceiptDisp rd = new ReceiptDisp();
+        rd.setConnection(con);
+        //rd.setReceipt(r);
+        //boolean flag = rd.chargeSome();
+        ArrayList receiptList = rd.chargeCustomerReceipts(customer,period);
+        try { c.close();
+        } catch (Exception e){}
+        return receiptList;
+    }
+
+}

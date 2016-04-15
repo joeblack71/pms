@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+   <data-sources />
+
+   <form-beans>
+   		<form-bean name="AccountChargeForm"
+   			type="com.myco.stay.form.AccountChargeForm">
+   		</form-bean>
+   </form-beans>
+
+   <global-exceptions />
+   
+   <global-forwards />
+   
+   <action-mappings>
+   		<action path="/AccountCharge"
+   			type="com.myco.stay.action.AccountChargeAction"
+   			parameter="accountChargeList"
+   			name="AccountChargeForm" scope="request" validate="false">
+   			<forward name="success" path="/roomCharges.jsp"></forward>
+   		</action>
+   </action-mappings>
+   
+   <controller bufferSize="4096" debug="0" />
+
+</struts-config>
+

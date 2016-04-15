@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix"><value>/WEB-INF/jsp/</value></property>
+		<property name="suffix"><value>.jsp</value></property>
+<!--        <property name="viewClass"><value>org.springframework.web.servlet.view.JstlView</value></property>-->
+	</bean>
+	
+	<bean name="/Reservation.htm"
+		  class="com.myco.central.reservations.web.controller.ReservationController"
+		  scope="request">
+		<property name="methodNameResolver" ref="pentho.central.ReservationMethodNameResolver"/>
+		<property name="reservationService" ref="pentho.central.reservationService"/>
+	</bean>
+  
+	<bean id="pentho.central.ReservationMethodNameResolver"
+	      class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName"><value>action</value></property>
+		<property name="logicalMappings">
+			<props>
+				<prop key="loadForm">loadForm</prop>
+            </props>
+		</property>
+	</bean>
+  
+</beans>

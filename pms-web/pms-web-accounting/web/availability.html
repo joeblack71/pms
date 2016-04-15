@@ -1,0 +1,50 @@
+
+<FORM method='post' id='frmFilter' name='frmFilter' action="CtrlAvailability">
+  <TABLE class='Search'>
+    <!--<CAPTION>Rango de Consulta</CAPTION>-->
+    <TR>
+      <TD><LABEL for='hotel'>Hotel</LABEL>
+          <SELECT name='selHotel' id='hotel' disabled>
+            <OPTGROUP label="Hotel">
+              <OPTION value='1' selected>Mossone</OPTION>
+              <OPTION value='2'>Ayacucho</OPTION>
+              <OPTION value='3'>Nazca</OPTION>
+              <OPTION value='4'>Tacna</OPTION>
+              <OPTION value='5'>Moquegua</OPTION>
+            </OPTGROUP>
+          </SELECT>
+          <LABEL for='startDate'>Inicio</LABEL>
+          <INPUT type='text' class='Medium' name='startDate'
+                 id='startDate' value='<%=aq.getStartDate()%>'
+                 onchange='sendForm()' maxlength='10'>
+          <SELECT name='selPeriod'>
+            <OPTGROUP label="Periodo">
+              <OPTION value='W' selected>Semana</OPTION>
+              <OPTION value='M'>Mes</OPTION>
+              <OPTION value='Q'>Trimestre</OPTION>
+              <OPTION value='S'>Semestre</OPTION>
+              <OPTION value='Y'>Año</OPTION>
+            </OPTGROUP>
+          </SELECT>
+          <!--<SELECT name='selYear'>
+            <OPTGROUP label="Año">
+              <OPTION value='2007'>2007</OPTION>
+              <OPTION value='2006'>2006</OPTION>
+            </OPTGROUP>
+          </SELECT>
+          <SELECT name='selMonth'>
+            <OPTGROUP label="Mes">
+              <OPTION value='01'>Enero</OPTION>
+              <OPTION value='02'>Febrero</OPTION>
+            </OPTGROUP>
+          </SELECT>
+          <SELECT name='selDay'>
+            <OPTGROUP label="Dia">
+              <OPTION value='01'>01</OPTION>
+              <OPTION value='02'>02</OPTION>
+            </OPTGROUP>
+          </SELECT>-->
+          <INPUT type='submit' name='show' value='Enviar'>
+          <INPUT type='submit' name='next' value='Siguiente'>
+  </TABLE>
+</FORM>

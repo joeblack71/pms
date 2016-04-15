@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>Consulta Registro de Ventas Hoteles</display-name>
+    <description>
+    	This web application let us querying information about hotels.
+    </description>
+
+    <servlet>
+        <servlet-name>AuthenticateServlet</servlet-name>
+        <servlet-class>servlets.AuthenticateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AuthenticateServlet</servlet-name>
+        <url-pattern>/AuthenticateServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CustomerReportServlet</servlet-name>
+        <servlet-class>servlets.CustomerReportServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CustomerReportServlet</servlet-name>
+        <url-pattern>/CustomerReportServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReceiptServlet</servlet-name>
+        <servlet-class>servlets.ReceiptServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReceiptServlet</servlet-name>
+        <url-pattern>/ReceiptServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReceiptReportServlet</servlet-name>
+        <servlet-class>servlets.ReceiptReportServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReceiptReportServlet</servlet-name>
+        <url-pattern>/ReceiptReportServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ReceiptQueryServlet</servlet-name>
+        <servlet-class>servlets.ReceiptQueryServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ReceiptQueryServlet</servlet-name>
+        <url-pattern>/ReceiptQueryServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>
