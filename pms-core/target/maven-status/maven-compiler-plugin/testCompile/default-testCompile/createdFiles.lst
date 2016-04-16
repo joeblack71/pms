@@ -1,0 +1,11 @@
+com\myco\central\core\util\CoreMockFactoryTest.class
+com\myco\central\core\util\Messages.class
+com\myco\central\core\service\RoomServiceTest.class
+com\myco\central\core\util\MockFactory.class
+com\myco\central\core\service\RoomTypeServiceTest.class
+com\myco\central\core\service\SegmentServiceTest.class
+com\myco\central\core\service\SourceServiceTest.class
+com\myco\central\core\dao\RoomDaoTest.class
+com\myco\central\core\util\TestConstantsMessages.class
+com\myco\central\core\util\AbstractCoreBaseTest.class
+com\myco\central\core\dao\SourceTypeDaoTest.class

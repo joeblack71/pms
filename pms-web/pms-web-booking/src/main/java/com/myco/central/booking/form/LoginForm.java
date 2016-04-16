@@ -1,16 +1,14 @@
-package com.myco.central.form;
+package com.myco.central.web.form;
 
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-
-public class LoginForm extends ActionForm{
-	private static final long serialVersionUID = 1L;
+public class LoginForm {
 	
 	private String userName;
 	private String password;
-	private String hotelId;
+	private String idHotel;
+	
+	public LoginForm() {
+	}
 	
 	public String getUserName() {
 		return userName;
@@ -26,14 +24,14 @@ public class LoginForm extends ActionForm{
 		this.password = password;
 	}
 	
-	public String getHotelId() {
-		return hotelId;
+	public String getIdHotel() {
+		return idHotel;
 	}
-	public void setHotelId(String hotelId) {
-		this.hotelId = hotelId;
+	public void setIdHotel(String hotelId) {
+		this.idHotel = hotelId;
 	}
 
-	public void reset(ActionMapping arg0, HttpServletRequest arg1) {
+	public void reset() {
 		this.userName = null;
 		this.password = null;
 	}

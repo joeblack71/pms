@@ -1,94 +1,112 @@
-package com.myco.central.form;
+package com.myco.central.web.booking.form;
 
-import java.util.ArrayList;
+import com.myco.central.booking.model.Guest;
+import com.myco.central.booking.model.Reservation;
+
 import java.util.List;
+import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+public class ReservationForm {
+    // contiene informacion del huesped en pantalla
+    private Guest guestView;
 
-import org.apache.commons.beanutils.DynaBean;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
+    private Reservation item;
+    // Indica el tipo de operacion a efectuar en la reserva (Insert, Update, ..)
+    private String operationExpected;
 
-import com.myco.central.vo.PaymentType;
-import com.myco.central.vo.Reservation;
-import com.myco.central.vo.ReservationStatus;
-import com.myco.central.vo.Room;
-import com.myco.central.vo.RoomType;
+    private List<Map<String,String>> paymentTypeList;
+    private List<Map<String,String>> reservationStatusList;
+    private List<Map<String,String>> roomNumberList;
 
-public class ReservationForm extends ActionForm {
-	private static final long serialVersionUID = 1L;
-	
-	private Reservation item;
-	
-	private List<ReservationStatus> reservationStatusList;
-	private List<RoomType> roomTypeList;
-	private List<Room> roomNumberList;
-	private List<PaymentType> paymentTypeList;
+    //private List<RoomType> roomTypeList;
+    private List<Map<String,String>> roomTypeList;
+    private String sourceName;
+    private String sourcePhone;
+    private String testing;
 
-	public ReservationForm() {
-		this.item = new Reservation();
-	}
-	
-	public Reservation getItem() {
-		return item;
-	}
-
-	public void setItem(Reservation item) {
-		this.item = item;
-	}
-	
-	public List<RoomType> getRoomTypeList() {
-		return roomTypeList;
-	}
-
-	public void setRoomTypeList(List<RoomType> roomTypeList) {
-		this.roomTypeList = roomTypeList;
-	}
-
-	public List<Room> getRoomNumberList() {
-		return roomNumberList;
-	}
-
-	public void setRoomNumberList(List<Room> roomNumberList) {
-		this.roomNumberList = roomNumberList;
-	}
-
-	public List<ReservationStatus> getReservationStatusList() {
-		return reservationStatusList;
-	}
-
-	public void setReservationStatusList(
-			List<ReservationStatus> reservationStatusList) {
-		this.reservationStatusList = reservationStatusList;
-	}
-
-	public List<PaymentType> getPaymentTypeList() {
-		return paymentTypeList;
-	}
-
-	public void setPaymentTypeList(List<PaymentType> paymentTypeList) {
-		this.paymentTypeList = paymentTypeList;
-	}
-
-	/**
-     * Validamos las propiedades que se han establecido para esta petición HTTP,
-     * y devolvemos un objeto <code>ActionErrors</code> que encapsula cualquier
-     * error de validación que encontremos. Si no se encuentran errores, devolvemos
-     * <code>null</code> o un objeto <code>ActionErrors</code> sin mensajes de error.
-     **/
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-        
-        if ( getItem() == null ) {
-            //errors.add(ActionErrors.GLOBAL_ERROR, new ActionError("global.required", "email"));
-            //errors.add("email", new ActionMessage("global.required") );
-        }
-        
-        return errors;
+    public ReservationForm() {
+        this.item = new Reservation();
+        this.guestView = new Guest();
     }
-    
-	public void reset(ActionMapping arg0, HttpServletRequest arg1) {
-	}
+
+    public Guest getGuestView() {
+        return guestView;
+    }
+
+    public Reservation getItem() {
+        return item;
+    }
+
+    public String getOperationExpected() {
+        return operationExpected;
+    }
+
+    public List<Map<String,String>> getPaymentTypeList() {
+        return paymentTypeList;
+    }
+
+    public List<Map<String,String>> getReservationStatusList() {
+        return reservationStatusList;
+    }
+
+    public List<Map<String,String>> getRoomNumberList() {
+        return roomNumberList;
+    }
+
+    public List<Map<String,String>> getRoomTypeList() {
+        return roomTypeList;
+    }
+
+    public String getSourceName() {
+        return sourceName;
+    }
+
+    public String getSourcePhone() {
+        return sourcePhone;
+    }
+
+    public String getTesting() {
+        return testing;
+    }
+
+    public void setGuestView(Guest guestView) {
+        this.guestView = guestView;
+    }
+
+    public void setItem(Reservation item) {
+        this.item = item;
+    }
+
+    public void setOperationExpected(String operationExpected) {
+        this.operationExpected = operationExpected;
+    }
+
+    public void setPaymentTypeList(List<Map<String,String>> paymentTypeList) {
+        this.paymentTypeList = paymentTypeList;
+    }
+
+    public void setReservationStatusList(List<Map<String,String>> reservationStatusList) {
+        this.reservationStatusList = reservationStatusList;
+    }
+
+    public void setRoomNumberList(List<Map<String,String>> roomNumberList) {
+        this.roomNumberList = roomNumberList;
+    }
+
+    public void setRoomTypeList(List<Map<String,String>> roomTypeList) {
+        this.roomTypeList = roomTypeList;
+    }
+
+    public void setSourceName(String sourceName) {
+        this.sourceName = sourceName;
+    }
+
+    public void setSourcePhone(String sourcePhone) {
+        this.sourcePhone = sourcePhone;
+    }
+
+    public void setTesting(String testing) {
+        this.testing = testing;
+    }
 
 }

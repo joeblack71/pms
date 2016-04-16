@@ -1,0 +1,12 @@
+com\myco\central\booking\dao\ReservationDaoTest.class
+com\myco\central\booking\service\RateServiceTest.class
+com\myco\central\booking\utils\BookingMockFactoryTest.class
+com\myco\central\booking\utils\Messages.class
+com\myco\central\booking\service\ReservationServiceTest.class
+com\myco\central\booking\dao\SpecialRateDaoTest.class
+com\myco\central\booking\service\OccupationServiceTest.class
+com\myco\central\booking\service\RoomTypeStatusServiceTest.class
+com\myco\central\booking\utils\TestConstantsMessages.class
+com\myco\central\booking\utils\AbstractBookingBaseTest.class
+com\myco\central\booking\service\AvailabilityServiceTest.class
+com\myco\central\booking\service\GuestServiceTest.class

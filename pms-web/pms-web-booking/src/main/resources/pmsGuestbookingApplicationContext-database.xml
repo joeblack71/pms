@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+	<import resource="classpath:com/bluestarenergy/billing/datasource-source.xml"/>
+	
+	<bean id="sessionFactory" parent="abstractSessionFactory">
+		<property name="configLocations">
+			<list>
+				<value>
+					classpath:com/bluestarenergy/billing/billing-hibernate.cfg.xml
+				</value>
+				<value>
+					classpath:com/bluestarenergy/core/core-hibernate.cfg.xml
+				</value>
+				<value>
+					classpath:com/bluestarenergy/core/party/coreparty-hibernate.cfg.xml
+				</value>				
+				<value>
+					classpath:com/bluestarenergy/core/base/corebase-hibernate.cfg.xml
+				</value>
+				<value>
+					classpath:com/bluestarenergy/core/security/coresecurity-hibernate.cfg.xml
+				</value>	
+			</list>
+		</property>
+	</bean>
+
+	<!-- Transaction manager for a single Hibernate SessionFactory (alternative to JTA) -->
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<!-- 
+		********************************************************************************************************
+		* NOTICE: Abstract SessionFactory that serves as a TEMPLATE for application-specific SessionFactories  *
+		********************************************************************************************************
+	-->
+	<bean id="abstractSessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+		abstract="true">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${hibernate.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">
+					${hibernate.show_sql}
+				</prop>
+				<prop key="hibernate.generate_statistics">
+					${hibernate.generate_statistics}
+				</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop> 
+        		<prop key="hibernate.cache.use_query_cache">true</prop> 
+        		<prop key="hibernate.cache.provider_class">net.sf.ehcache.hibernate.SingletonEhCacheProvider</prop> 
+			</props>
+			
+		</property>
+		
+	</bean>
+
+</beans>

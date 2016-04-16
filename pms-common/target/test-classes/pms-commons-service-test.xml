@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- Importing Beans -->
+    <import resource="pentho.commons-data-test.xml"/>
+
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">FileUploadError</prop>
+                <prop key="org.springframework.web.multipart.MultipartException">FileUploadError</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Services Definition  -->
+    <bean id="pentho.central.moduleService" 
+            class="com.myco.central.reservations.service.impl.ModuleServiceImpl">
+        <property name="countryDao" ref="pentho.central.countryDao"/>
+        <property name="cityDao" ref="pentho.central.cityDao"/>
+        <property name="dataCatalogDao" ref="pentho.central.dataCatalogDao"/>
+        <property name="hotelDao" ref="pentho.central.hotelDao"/>
+        <property name="sourceTypeDao" ref="pentho.central.sourceTypeDao"/>
+        <property name="segmentDao" ref="pentho.central.segmentDao"/>
+    </bean>
+
+    <bean id="pentho.commons.companyService" 
+            class="com.myco.central.commons.service.impl.CompanyServiceImpl">
+        <property name="companyDao" ref="pentho.commons.companyDao"/>
+    </bean>
+
+    <bean id="pentho.commons.commonsService" 
+            class="com.myco.central.commons.service.impl.CommonsServiceImpl">
+        <property name="commonsDao" ref="pentho.commons.commonsDao"/>
+    </bean>
+
+    <bean id="pentho.commons.countryService" 
+            class="com.myco.central.commons.service.impl.CountryServiceImpl">
+        <property name="countryDao" ref="pentho.commons.countryDao"/>
+    </bean>
+
+    <bean id="pentho.commons.cityService" 
+            class="com.myco.central.commons.service.impl.CityServiceImpl">
+        <property name="cityDao" ref="pentho.commons.cityDao"/>
+    </bean>
+
+    <bean id="pentho.commons.customerService" 
+            class="com.myco.central.commons.service.impl.CustomerServiceImpl">
+        <property name="customerDao" ref="pentho.commons.customerDao"/>
+    </bean>
+
+    <bean id="pentho.commons.segmentService" 
+            class="com.myco.central.commons.service.impl.SegmentServiceImpl">
+        <property name="segmentDao" ref="pentho.commons.segmentDao"/>
+    </bean>
+
+    <bean id="pentho.commons.sourceService" 
+            class="com.myco.central.commons.service.impl.SourceServiceImpl">
+        <property name="sourceDao" ref="pentho.commons.sourceDao"/>
+    </bean>
+
+    <!-- Logging Definition (log4j) -->
+    <bean id="central.reservations.log4jInitializer"
+        class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+        <property name="targetMethod" value="initLogging" />
+        <property name="arguments">
+            <list>
+                <value>/technical/logs/apps/config/pentho.commons.config</value>
+            </list>
+        </property>
+    </bean>
+</beans>

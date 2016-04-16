@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- DAO's Definition  -->
+    <bean id="pentho.commons.commonsDao" 
+            class="com.myco.central.commons.dao.impl.CommonsDaoImpl">
+    </bean>
+
+    <bean id="pentho.commons.companyDao" 
+            class="com.myco.central.commons.dao.impl.CompanyDaoImpl">
+    </bean>
+
+    <bean id="pentho.commons.countryDao" 
+            class="com.myco.central.commons.dao.impl.CountryDaoImpl">
+    </bean>
+
+    <bean id="pentho.commons.cityDao" 
+            class="com.myco.central.commons.dao.impl.CityDaoImpl">
+    </bean>
+
+    <bean id="pentho.commons.customerDao" 
+            class="com.myco.central.commons.dao.impl.CustomerDaoImpl">
+    </bean>
+
+    <bean id="pentho.commons.segmentDao" 
+            class="com.myco.central.commons.dao.impl.SegmentDaoImpl">
+    </bean>
+
+    <bean id="pentho.commons.sourceDao" 
+            class="com.myco.central.commons.dao.impl.SourceDaoImpl">
+    </bean>
+
+</beans>

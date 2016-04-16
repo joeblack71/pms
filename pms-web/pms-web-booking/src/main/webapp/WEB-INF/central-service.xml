@@ -5,6 +5,18 @@
         xsi:schemaLocation="http://www.springframework.org/schema/beans 
         http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
+    <bean id="central.propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="locations">
+            <list>
+                <value>
+                    classpath:com/myco/central/reservation/database.properties
+                </value>
+            </list>
+        </property>
+    </bean>
+
 	<bean id="pentho.central.reservationManagerService" 
 	       class="com.myco.central.reservations.service.ReservationManagerImpl">
 	    <property name="reservationService" ref="pentho.central.reservationService"/>

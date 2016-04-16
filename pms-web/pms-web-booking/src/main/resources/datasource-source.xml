@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>${hibernate.connection.driver_class}</value>
+		</property>
+		<property name="url">
+			<value>${hibernate.connection.url}</value>
+		</property>
+		<property name="username">
+			<value>${hibernate.connection.username}</value>
+		</property>
+		<property name="password">
+			<value>${hibernate.connection.password}</value>
+		</property>
+	</bean>
+
+    <!-- JNDI DataSource for J2EE environments -->
+    
+    <!--<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="bsecore"/>
+    </bean>-->
+
+    <!-- 
+        
+        ********************************************************************************************************
+        * NOTICE: Abstract SessionFactory that serves as a TEMPLATE for application-specific SessionFactories  *
+        ********************************************************************************************************
+        
+    -->
+    <bean id="abstractSessionFactory"
+        class="org.springframework.orm.hibernate3.LocalSessionFactoryBean"
+        abstract="true">
+        <property name="dataSource" ref="dataSource" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">
+                    ${bse_eis.hibernate.dialect}
+                </prop>
+                <prop key="hibernate.show_sql">
+                    ${bse_eis.hibernate.show_sql}
+                </prop>
+                <prop key="hibernate.generate_statistics">
+                    ${bse_eis.hibernate.generate_statistics}
+                </prop>
+            </props>
+        </property>
+    </bean>
+</beans>

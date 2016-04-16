@@ -1,0 +1,7 @@
+com\myco\central\model\SourceType.class
+com\myco\central\model\Segment.class
+com\myco\central\model\RoomType.class
+com\myco\central\model\Source.class
+com\myco\central\model\Room.class
+com\myco\central\model\Hotel.class
+com\myco\central\model\BaseAuditable.class

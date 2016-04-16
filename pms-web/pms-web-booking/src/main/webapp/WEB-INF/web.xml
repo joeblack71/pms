@@ -5,36 +5,32 @@
 	"http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
+	<display-name>Central</display-name>
+	<description> Central Hotel Management System </description>
 
-	<display-name>Central Property Management System</display-name>
-	<description>
-	   Central Property Management System
-	</description>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/central-service.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>central</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
-    </servlet>
+	</servlet>
 
 	<servlet-mapping>
-        <servlet-name>central</servlet-name>
-        <url-pattern>*.htm</url-pattern>
-    </servlet-mapping>
-  
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>
-            /WEB-INF/central-service.xml
-        </param-value>
-    </context-param>
+		<servlet-name>central</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
 
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-    <welcome-file-list>
+	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-
 </web-app>

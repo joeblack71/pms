@@ -1,0 +1,5 @@
+projectKey=pms:central
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/pms:central
+ceTaskId=AVMq27qNCJ3g1_qm2Hjs
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVMq27qNCJ3g1_qm2Hjs

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+        
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <!-- DAO's Definition  -->
+    <bean id="pentho.central.reservationDao" 
+            class="com.myco.central.reservations.dao.impl.ReservationDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.occupationDao" 
+            class="com.myco.central.reservations.dao.impl.OccupationDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.guestDao" 
+            class="com.myco.central.reservations.dao.impl.GuestDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.roomDao" 
+            class="com.myco.central.reservations.dao.impl.RoomDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.roomtypeDao" 
+            class="com.myco.central.reservations.dao.impl.RoomTypeDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.roomtypeStatusDao" 
+            class="com.myco.central.reservations.dao.impl.RoomTypeStatusDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.periodDao" 
+            class="com.myco.central.reservations.dao.impl.PeriodDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.rateDao" 
+            class="com.myco.central.reservations.dao.impl.RateDaoImpl">
+    </bean>
+
+    <bean id="pentho.central.specialRateDao" 
+            class="com.myco.central.reservations.dao.impl.SpecialRateDaoImpl">
+    </bean>
+
+</beans>
