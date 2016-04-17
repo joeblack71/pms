@@ -8,13 +8,14 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>../pms-common</module>
- 		<module>../pms-model</module>
-        <module>../pms-core</module>
-		<module>../pms-booking</module>
-		<module>../pms-accounting</module>
+		<module>../pms-commons</module>
+<!--  		<module>../pms-model</module> -->
+<!--         <module>../pms-core</module> -->
+<!-- 		<module>../pms-booking</module> -->
+<!-- 		<module>../pms-accounting</module> -->
 <!--        <module>../pms-security</module> -->
-		<module>../pms-web/pms-web-booking</module>
+<!-- 		<module>../pms-web/pms-web-accounting</module> -->
+<!--         <module>../pms-web/pms-web-booking</module> -->
 	</modules>
 	
 	<properties>
@@ -64,102 +65,100 @@
             <artifactId>pms-accounting</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-		<!-- 
-			Spring 
-		-->
-<!--         <dependency> -->
-<!--             <groupId>org.springframework.boot</groupId> -->
-<!--             <artifactId>spring-boot-starter-data-jpa</artifactId> -->
-<!--             <version>${spring.boot.version}</version> -->
-<!--         </dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-core</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-web</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-beans</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-context</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-aop</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-context-support</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-tx</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-orm</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-jdbc</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 		</dependency> -->
-<!--         <dependency> -->
-<!-- 		    <groupId>org.springframework</groupId> -->
-<!-- 		    <artifactId>spring-webmvc</artifactId> -->
-<!-- 		    <version>${spring.version}</version> -->
-<!-- 		    <exclusions> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>commons-logging</groupId> -->
-<!-- 		            <artifactId>commons-logging</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.springframework</groupId> -->
-<!-- 		            <artifactId>spring-beans</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.springframework</groupId> -->
-<!-- 		            <artifactId>spring-context</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.springframework</groupId> -->
-<!-- 		            <artifactId>spring-context-support</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.springframework</groupId> -->
-<!-- 		            <artifactId>spring-core</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		        <exclusion> -->
-<!-- 		            <groupId>org.springframework</groupId> -->
-<!-- 		            <artifactId>spring-web</artifactId> -->
-<!-- 		        </exclusion> -->
-<!-- 		    </exclusions> -->
-<!-- 		</dependency>		 -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-test</artifactId> -->
-<!-- 			<version>${spring.version}</version> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework</groupId> -->
-<!-- 			<artifactId>spring-mock</artifactId> -->
-<!-- 			<version>2.0-m4</version> -->
-<!-- 	        <scope>test</scope> -->
-<!-- 		</dependency> -->
+		<!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency> -->
+<!--    <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>${spring.version}</version>
+		    <exclusions>
+		        <exclusion>
+		            <groupId>commons-logging</groupId>
+		            <artifactId>commons-logging</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>spring-beans</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>spring-context</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>spring-context-support</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>spring-core</artifactId>
+		        </exclusion>
+		        <exclusion>
+		            <groupId>org.springframework</groupId>
+		            <artifactId>spring-web</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-mock</artifactId>
+			<version>2.0-m4</version>
+	        <scope>test</scope>
+		</dependency> -->
         <!--
             Object-to-XML Mapping (OXM) abstraction and integration with JAXB, JiBX, Castor, XStream, and XML Beans.
             (depends on spring-core, spring-beans, spring-context)
@@ -170,19 +169,17 @@
           <artifactId>spring-oxm</artifactId>
           <version>${spring.version}</version>
         </dependency-->
-        <!-- 
-            ORM
-        -->
-	    <dependency>
-	      <groupId>javax.persistence</groupId>
-	      <artifactId>persistence-api</artifactId>
-	      <version>1.0</version>
+        <!-- persistence -->
+	    <!-- <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
 	    </dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
-		</dependency>
+		</dependency> -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -198,38 +195,24 @@
             <artifactId>h2</artifactId>
             <version>${h2.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <version>1.0.1.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.0.0</version>
-        </dependency>
+<!--         <dependency> -->
+<!--             <groupId>javax.persistence</groupId> -->
+<!--             <artifactId>persistence-api</artifactId> -->
+<!--             <version>1.0.2</version> -->
+<!--         </dependency> -->
 	    <!-- <dependency>
 		    <groupId>org.apache.tomcat</groupId>
 		    <artifactId>tomcat-dbcp</artifactId>
 		    <version>7.0.52</version>
 		</dependency> -->
-	    <!--
-	    	Database Connectors
-	    -->
+	    <!-- Database Connectors -->
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>5.1.38</version>
 		</dependency>
-		<!--
-			Commons
-		-->
-		<dependency>
+		<!-- commons -->
+		<!-- <dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
 			<version>2.1</version>
@@ -273,65 +256,56 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.8.3</version>
-        </dependency>
-		<!-- 
-			Testing 
-		-->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.2</version>
-			<scope>test</scope>
-		</dependency>
-        <!-- 
-            Logging
-         -->
+        </dependency> -->
+        <!-- logging -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.1.7</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.19</version>
+            <version>1.7.20</version>
         </dependency>
-		<!--
-			Utils
-		-->
-		<!-- <dependency> 
-			<groupId>joda-time</groupId> 
-			<artifactId>joda-time</artifactId> 
-			<version>1.2.1</version> 
-		</dependency> -->
+        <!-- testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
 	</dependencies>
 	</dependencyManagement>
     <build>
-        <!-- <pluginManagement>
+        <pluginManagement>
             <plugins>
-                <plugin>
+                <!-- <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.2</version>
+                </plugin> -->
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.2</version>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
                 </plugin>
             </plugins>
-        </pluginManagement> -->
+        </pluginManagement>
         
         <defaultGoal>install</defaultGoal>
         <resources>
             <resource>
-                <directory>config</directory>
+                <directory>resources</directory>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 </project>
