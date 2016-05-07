@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,24 +50,14 @@ public abstract class BaseDaoTestCase /*extends AbstractTransactionalJUnit4Sprin
     }
 
     /**
-     * Create a HibernateTemplate from the SessionFactory and call flush() and clear() on it.
-     * Designed to be used after "save" methods in tests: http://issues.appfuse.org/browse/APF-178.
-     *
-     * @throws org.springframework.beans.BeansException
-     *          when can't find 'sessionFactory' bean
-     */
-	/*
-	 * protected void flush() throws BeansException { Session currentSession =
-	 * sessionFactory.getCurrentSession(); currentSession.flush(); }
-	 */
-
-    /**
      * Flush search indexes, to be done after a reindex() or reindexAll() operation
      */
     public void flushSearchIndexes() {
-        //        Session currentSession = sessionFactory.getCurrentSession();
-        //        final FullTextSession fullTextSession = Search.getFullTextSession(currentSession);
-        //        fullTextSession.flushToIndexes();
+		@SuppressWarnings("unused")
+		Session currentSession = sessionFactory.getCurrentSession();
+		// final FullTextSession fullTextSession =
+		// Search.getFullTextSession(currentSession);
+		// fullTextSession.flushToIndexes();
     }
 
     /**

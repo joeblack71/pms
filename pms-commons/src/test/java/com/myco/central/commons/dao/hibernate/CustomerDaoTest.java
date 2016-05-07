@@ -29,8 +29,8 @@ public class CustomerDaoTest extends AbstractCommonsBaseTest {
 
 	@Test
 	public void insert() {
-		persistedCustomer = customerDao.save(customer);
-		assertNotNull(TestConstantsMessages.FAIL_INSERT, persistedCustomer);
+		customerDao.save(customer);
+		assertNotNull(TestConstantsMessages.FAIL_INSERT, customer.getId());
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class CustomerDaoTest extends AbstractCommonsBaseTest {
 			customer.setDocumentType("1");
 			customer.setDocumentNumber("88888888");
 			
-			persistedCustomer = customerDao.save(customer);
+			customerDao.save(customer);
 
 		} catch(Exception e) {
 			System.out.println( e.getCause() );
@@ -55,7 +55,7 @@ public class CustomerDaoTest extends AbstractCommonsBaseTest {
 
 	@Test
 	public void search() {
-		customer = customerDao.get(1L);
+		customer = customerDao.find(1L);
 
 		assertEquals("PEREZ", customer.getLastName());
 	}
@@ -73,7 +73,7 @@ public class CustomerDaoTest extends AbstractCommonsBaseTest {
 		List<Customer> list = null;
 
 		try {
-			list = customerDao.search(customer);
+			list = customerDao.getAll("pattern");
 		
 		} catch(Exception e) {
 			System.out.println( e.getCause() );

@@ -15,7 +15,7 @@ public abstract class GenericServiceImpl<T> implements GenericService<T> {
 	
 	@Override
 	public T get(Long id) throws ServiceException {
-		return dao.get(id);
+		return dao.find(id);
 	}
 
 	@Override
@@ -35,17 +35,18 @@ public abstract class GenericServiceImpl<T> implements GenericService<T> {
 
 	@Override
 	public void remove(Long id) throws ServiceException {
-		dao.remove(id);
+		T persistedObject = dao.find(id);
+		remove(persistedObject);
 	}
 
 	@Override
 	public List<T> search(T t) throws ServiceException {
-		return dao.search(t);
+		return dao.getAll();
 	}
 
 	@Override
 	public List<T> search(String pattern) throws ServiceException {
-		return dao.search(pattern);
+		return dao.getAll(pattern);
 	}
 
 	@Override

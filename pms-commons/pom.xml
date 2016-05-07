@@ -32,22 +32,10 @@
             <artifactId>spring-test</artifactId>
         </dependency> -->
         <!-- persistence -->
-        <!-- <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-        </dependency> -->
-        <!-- <dependency>
+        <!-- dependency>
             <groupId>javax.persistence</groupId>
             <artifactId>persistence-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
-        </dependency> -->
+        </dependency -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -56,11 +44,15 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-java8</artifactId>
         </dependency>
+        <!-- dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency> -->
         <!-- database -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-        </dependency>
+        </dependency -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -85,48 +77,16 @@
         </dependency>
     </dependencies>
 
-<!--     <build> -->
-<!--         <plugins> -->
-<!--             <plugin> -->
-<!--                 <groupId>org.springframework.boot</groupId> -->
-<!--                 <artifactId>spring-boot-maven-plugin</artifactId> -->
-<!--             </plugin> -->
-<!--         </plugins> -->
-<!--     </build> -->
-
-    <repositories>
-        <repository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/libs-release</url>
-        </repository>
-<!--         <repository> -->
-<!--             <id>org.jboss.repository.releases</id> -->
-<!--             <name>JBoss Maven Release Repository</name> -->
-<!--             <url>https://repository.jboss.org/nexus/content/repositories/releases</url> -->
-<!--         </repository> -->
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-releases</id>
-            <name>Spring Releases</name>
-            <url>https://repo.spring.io/libs-release</url>
-        </pluginRepository>
-    </pluginRepositories>
-
     <build>
-        <testResources>
-            <testResource>
-                <filtering>false</filtering>
-                <directory>src/test/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </testResource>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <!-- <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin> -->
+        </plugins>
     </build>
 </project>

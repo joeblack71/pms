@@ -51,14 +51,14 @@ public class PersonDaoTest extends GenericDaoTest {
 
     @Test
     public void testFindPersonById() throws Exception {
-        Person person = personDao.get(1l);
+		Person person = personDao.find(1l);
 
         assertNotNull("Null value returned", person);
     }
 
     @Test
     public void testFindPersonByLastName() throws Exception {
-        personDao.search("Tchaikovsky");
+		personDao.getAll("Tchaikovsky");
     }
 
     @Test
@@ -92,7 +92,7 @@ public class PersonDaoTest extends GenericDaoTest {
 
         personDao.remove(contact);
 
-        contact = (Contact) personDao.get(contact.getId());
+		contact = (Contact) personDao.find(contact.getId());
         assertTrue(contact == null);
     }
 }
